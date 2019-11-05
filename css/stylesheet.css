@@ -1,0 +1,9 @@
+.navbar-nav{
+  margin-left: auto;
+}
+*{
+  background-color:#EEECDE;
+  background-size: cover;
+}
+
+header nav a { background-color: #f8f9fa;}
