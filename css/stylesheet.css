@@ -11,24 +11,45 @@ header nav a {
 }
 
 #carousell{
-  display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
+    bottom: -40px;
+    border-radius: 20px;
+    margin-top: 40px;
 }
+#carousell img{
+margin: 0 auto;
+width: 80%;
+height: 70%;
+border-radius: 20px;}
+
 
 #navbarResponsive{
   background-color: #343a40;
 }
-.container{padding: 0px;}
+.container{
+  background-color:#343a40;
+  padding: 0px;
+}
 #navbarResponsive ul li{
-margin-right: 5px;
-padding: 5px;
-border-right: 5px;
-border-color:#343a40;
-background-color: #343a40;
-border-color: white;
+  margin-right: 1px;
+  padding: 5px;
+  border-right: 5px;
+  border-color:#343a40;
+  background-color: #343a40;
+  border-color: white;
+  max-width: 400px;
+  max-height: 700px;
 }
 #navbarResponsive ul li last-child{padding-right: 0px;}
-.col-lg-9 {
-  max-width: 100%;
+.cont {
+  margin: 0 auto;
+}
+
+.row{margin-top: 85px;
+}
+
+#texto{
+  background-color:#343a40;
 }
