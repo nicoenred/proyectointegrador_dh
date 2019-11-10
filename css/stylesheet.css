@@ -1,14 +1,18 @@
+header {
+  overflow: hidden;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: 'Assistant';
+  font-weight: 700;
+}
+
 .navbar-nav{
   margin-left: auto;
 }
-*{
-  background-color:#EEECDE;
-  background-size: cover;
-}
 
-header nav a {
-  background-color: #f8f9fa;
-}
+
+
 
 #carousell{
     display: flex;
@@ -52,4 +56,33 @@ border-radius: 20px;}
 
 #texto{
   background-color:#343a40;
+}
+
+/* ACA EMPIEZA PRODUCTO */
+
+
+
+#Producto .row {
+  display: flex;
+  margin:auto;
+  flex-wrap: wrap;
+  overflow: hidden;
+  background-color: #343a40
+
+}
+
+
+#Producto  img {
+  width: 100%;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    align-items: center;
+}
+
+#Producto .card {
+  align-items: center;
+  margin: auto;
+  border: none;
 }
