@@ -12,7 +12,7 @@ h1,h2,h3,h4,h5 {
 }
 
 
-
+/* ACA EMPIEZA HOME */
 
 #carousell{
     display: flex;
@@ -32,7 +32,7 @@ border-radius: 20px;}
 #navbarResponsive{
   background-color: #343a40;
 }
-.container{
+.TODO .container{
   background-color:#343a40;
   padding: 0px;
   border-radius: 18px;
@@ -92,3 +92,20 @@ border-radius: 20px;}
   margin: auto;
   border: none;
 }
+
+/* ACA EMPIEZA listado de productos */
+
+#productlist .row {
+  background-color: #E3E9EC;
+  justify-content: space-around;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* ACA EMPIEZA listado de productos */
+
+#resumen_compra .container {
+  background-color: none;
+}
+
+/* ACA EMPIEZA Carrito */
