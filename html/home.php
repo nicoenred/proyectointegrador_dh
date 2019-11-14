@@ -5,69 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <?php include_once "../estilo.php" ?>
+  <?php include_once "estilo.php" ?>
   <link href="https://fonts.googleapis.com/css?family=Assistant:400,700|Roboto&display=swap" rel="stylesheet">
   <title>HOME</title>
 </head>
 <body>
 
-  <?php include_once "../header.php" ?>
+  <?php include_once "header.php" ?>
 
-  <section class="container-fluid text-center p-3 m-0" id="home">
-    <span> <img src="../images/Logo/logo.png" alt="entre_diagonales"> <h1>entre <br> DIAGONALES </h1></span>
-    <p class="lead text-muted">Caminá la ciudad como nunca antes la habías caminado</p>
-  </section>
-
-  <section class="container-fluid p-0">
-    <div class="bd-example">
-      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../images/turismo la plata.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h2>Entre Diagonales</h2>
-              <p>Una nueva forma de conocer la ciudad de La Plata</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="../images/turismo la plata.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h2>Eje Fundacional</h2>
-              <p>Un nuevo recorrido que propone conocer los túneles de La Plata</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="../images/turismo la plata.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h2>República de los niños</h2>
-              <p>Visitá el lugar en el que Disney se inspiró para crear el parque temático.</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+  <section class="container-fluid text-center p-3 m-0 oscurecer" id="home">
+    <div class="row">
+      <div class="col-12">
+        <a href="home.php"><img src="../images/Logo/logo.png" alt="entre_diagonales"> </a>
       </div>
-    </div>
+      <div class="col-12">
+        <a href="home.php"><h1>entre <br> DIAGONALES </h1></a>
+      </div>
+      <div class="row p-0">
+        <div class="col text-center">
+          <button type="button" href="detalleproducto.php" class="btn btn-primary btn-lg text-center  center">
+            <span> Conocé nuestras excuriones </span>
+
+          </button>
+        </div>
+      </div>
+
   </section>
-
-
 
   <!-- Page Content -->
   <div class="TODO">
 
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
@@ -179,7 +148,7 @@
 <!-- /.container -->
 
 <!-- Footer -->
-<?php include_once "../footer.php" ?>
+<?php include_once "footer.php" ?>
 
 <!-- Bootstrap core JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
