@@ -113,17 +113,37 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Correo electrónico</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Ingrese su correo electrónico">
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Ingrese su correo electrónico, por ejemplo: pepefulanito@gmail.com">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Contraseña</label>
       <input type="password" class="form-control" id="inputPassword4" placeholder="Ingrese su contraseña">
     </div>
+    <div class="form-group col-md-6">
+      <label for="inputNumTel">Número de teléfono</label>
+      <input type="NumTel" class="form-control" id="inputNumTel" placeholder="Ingrese su número de teléfono">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputDNI">Documento de Identidad</label>
+      <input type="DNI" class="form-control" id="inputDNI" placeholder="Ingrese su Documento Nacional de Identidad">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputProfesion">Profesión u ocupación</label>
+      <input type="Profesion" class="form-control" id="inputProfesion" placeholder="Ingrese su profesión u ocupación">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputNumTel2">Número de teléfono adicional</label>
+      <input type="NumTel2" class="form-control" id="inputNumTel2" placeholder="Ingrese un número de teléfono adicional de emergencia">
+    </div>
   </div>
+
   <div class="form-group">
     <label for="inputAddress">Dirección</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="Calle Melancolía">
   </div>
+
+
+
   <!--
   <div class="form-group">
     <label for="inputAddress2">Address 2</label>
@@ -132,14 +152,37 @@
 -->
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity">Ciudad</label>
+      <label for="inputCity">Ciudad de Origen</label>
       <input type="text" class="form-control" id="inputCity">
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">Provincia</label>
       <select id="inputState" class="form-control">
         <option selected>Elija su provincia...</option>
-        <option>...</option>
+        <option>Buenos Aires</option>
+        <option>Río Negro</option>
+        <option>Tierra del Fuego</option>
+        <option>Santa Cruz</option>
+        <option>Chubut</option>
+        <option>Neuquén</option>
+        <option>La Pampa</option>
+        <option>Mendoza</option>
+        <option>Santa Fé</option>
+        <option>San Juan</option>
+        <option>Corrientes</option>
+        <option>Chaco</option>
+        <option>Entre Rios</option>
+        <option>Córdoba</option>
+        <option>Santiago del Estero</option>
+        <option>Formosa</option>
+        <option>Jujuy</option>
+        <option>Salta</option>
+        <option>Tucumán</option>
+        <option>Catamarca</option>
+        <option>La Rioja</option>
+        <option>Misiones</option>
+        <option>San Luis</option>
+
       </select>
     </div>
     <div class="form-group col-md-2">
@@ -147,6 +190,7 @@
       <input type="text" class="form-control" id="inputZip">
     </div>
   </div>
+  <!--
   <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -155,7 +199,8 @@
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+-->
+  <button type="submit" class="btn btn-primary">Registrarse</button>
 </form>
 </section>
 

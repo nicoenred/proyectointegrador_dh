@@ -15,7 +15,7 @@
               <a class="nav-link" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="productlist.php">Excursiones</a>
+              <a class="nav-link" href="listaproductos.php">Excursiones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Sobre Nosotros</a>
