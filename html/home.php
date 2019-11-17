@@ -146,6 +146,7 @@
 
 </div>
 <!-- /.container -->
+<?php  include_once "formulario-contacto.php"?>
 
 <!-- Footer -->
 <?php include_once "footer.php" ?>

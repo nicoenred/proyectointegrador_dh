@@ -10,14 +10,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <ul class="nav nav-pills">
-            <li class="nav-item">
+          <ul  id="barra" class="nav nav-pills">
+            <li  class="nav-item">
               <a class="nav-link" href="home.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="listaproductos.php">Excursiones</a>
             </li>
-            <li class="nav-item">
+            <li  class="nav-item">
               <a class="nav-link" href="#">Sobre Nosotros</a>
             </li>
             <li class="nav-item">
@@ -26,7 +26,13 @@
             <li class="nav-item">
               <a class="nav-link active" href="registro.php">Registarse</a>
             </li>
-          </ul>
+            <li class="nav-item">
+              <a class="nav-link active" href="registro.php">Login</a>
+            </li>
+            <li>
+              <a href="carro.php"><img src="../images\iconmonstr-shopping-cart-4-240.png" width="24" height="24"></a>
+            </li>
+            </ul>
         </ul>
       </div>
     </div>

@@ -57,7 +57,7 @@
     <div class="row p-0">
       <div class="col text-center">
         <button type="button" class="btn btn-primary btn-lg text-center  center">
-          <span>(ICONO CAR)</span>
+          <span><img src=../images\iconmonstr-shop-3-240.png width="24" height="24"></span>
             Comprar
         </button>
       </div>
