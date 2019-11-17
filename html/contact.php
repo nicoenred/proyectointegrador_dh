@@ -17,7 +17,9 @@
     <span> <img src="../images/Logo/logo.png" alt="entre_diagonales"> <h1>entre <br> DIAGONALES </h1></span>
     <p class="lead text-muted">Caminá la ciudad como nunca antes la habías caminado</p>
   </section>
+
   <?php  include_once "formulario-contacto.php"?>
+
   <footer class="bg-dark">
     <div class="container">
       <p id="texto" class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>

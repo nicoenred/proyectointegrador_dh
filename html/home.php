@@ -18,13 +18,13 @@
       <div class="col-12">
         <a href="home.php"><img src="../images/Logo/logo.png" alt="entre_diagonales"> </a>
       </div>
-      <div class="col-12">
-        <a href="home.php"><h1>entre <br> DIAGONALES </h1></a>
+      <div id="titulo" class="col-12">
+        <a  class="texto" href="home.php"><h1>entre <br> DIAGONALES </h1></a>
       </div>
       <div class="row p-0">
         <div class="col text-center">
           <button type="button" href="detalleproducto.php" class="btn btn-primary btn-lg text-center  center">
-            <span> Conocé nuestras excuriones </span>
+            <span> Conocé nuestras excursiones </span>
 
           </button>
         </div>
@@ -147,7 +147,6 @@
 </div>
 <!-- /.container -->
 <?php  include_once "formulario-contacto.php"?>
-
 <!-- Footer -->
 <?php include_once "footer.php" ?>
 

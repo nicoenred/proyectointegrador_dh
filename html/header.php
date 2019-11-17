@@ -21,13 +21,13 @@
               <a class="nav-link" href="#">Sobre Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contacto</a>
+              <a class="nav-link" href="contact.php">Contacto</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="registro.php">Registarse</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="registro.php">Login</a>
+              <a class="nav-link active" href="login.php">Login</a>
             </li>
             <li>
               <a href="carro.php"><img src="../images\iconmonstr-shopping-cart-4-240.png" width="24" height="24"></a>
