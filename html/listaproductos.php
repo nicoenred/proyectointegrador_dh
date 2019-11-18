@@ -13,56 +13,191 @@
   <?php include_once "header.php" ?>
 
 
-  <section class="container-fluid text-center p-3 m-0" id="home">
-    <span> <img src="../images/Logo/logo.png" alt="entre_diagonales"> <h1>entre <br> DIAGONALES </h1></span>
-    <p class="lead text-muted">Caminá la ciudad como nunca antes la habías caminado</p>
-  </section>
+  <header id="productos">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('../images/carrousel-productos/carrousel-home-01.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <p class="h1 text-center text-uppercase"><strong>museo de ciencias naturales</strong></p>
+            <button type="button" href="/listaproductos.php" class="btn btn-primary btn-lg text-center  center">
+              <span> Ver más </span>
 
-  <h2 class="text-center">Nuestras excursiones</h2>
+            </button>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('../images/carrousel-productos/carrousel-home-02.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="container-fluid ">
+              <p class="h1 text-center text-uppercase"><strong>río de la plata</strong></p>
+              <button type="button" href="/listaproductos.php" class="btn btn-primary btn-lg text-center  center">
+                <span> Ver más </span>
+
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('../images/carrousel-productos/carrousel-home-03.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <p class="h1 text-center text-uppercase"><strong>estadio de uno</strong></p>
+            <button type="button" href="/listaproductos.php" class="btn btn-primary btn-lg text-center  center">
+              <span> Ver más </span>
+
+            </button>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
 
   <section class="container-fluid" id="productlist">
-
-    <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-8">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="#" role="button">Reservar</a>
+    <p class="h2 text-center  text-uppercase"><strong>encontrá el recorrido que estás buscando</strong></p>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Encontrá el tour ideal...">
+          <a href="#" class="search_icon"><ion-icon size="large" name="search"></ion-icon></a>
+        </div>
       </div>
     </div>
-
     <div class="row">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-3">
         <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
       </div>
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-9">
         <h3>Recorré la República de los Niños</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="#" role="button">Reservar</a>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
       </div>
     </div>
-
     <div class="row">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-3">
         <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
       </div>
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-9">
         <h3>Recorré la República de los Niños</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="#" role="button">Reservar</a>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
       </div>
     </div>
-
     <div class="row">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-3">
         <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
       </div>
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-9">
         <h3>Recorré la República de los Niños</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="#" role="button">Reservar</a>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
       </div>
     </div>
 

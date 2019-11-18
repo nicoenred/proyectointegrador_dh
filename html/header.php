@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav_header">
-    <div class="container">
+    <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../images/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         entre <strong>Diagonales</strong> /
@@ -21,7 +21,7 @@
               <a class="nav-link" href="#">Sobre Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.php">Contacto</a>
+              <a class="nav-link" href="#contact-form">Contacto</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="registro.php">Registarse</a>

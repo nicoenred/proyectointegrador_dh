@@ -12,36 +12,25 @@
 <body>
   <?php include_once "header.php" ?>
 
-  <section class="container-fluid text-center p-3 m-0" id="home">
+  <section class="container-fluid text-center p-3 m-0 h-50" id="home">
     <span> <img src="../images/Logo/logo.png" alt="entre_diagonales"> <h1>entre <br> DIAGONALES </h1></span>
-    <p class="lead text-muted">Caminá la ciudad como nunca antes la habías caminado</p>
   </section>
 
-  <section id=Producto class="container-fluid p-3">
-      <div class="row">
-        <div class="col-sm-12 col-lg-6 p-0">
-          <div class="center">
-            <img src="../images/excursiones/republica_ninos/01.jpg"  class="img-fluid" alt="...">
-          </div>
-
-        </div>
-        <div class="col-sm-12 col-lg-6 card text-white bg-dark ">
-          <div class="card-body">
-            <h3> Caminata por la República de los Niños</h3>
-            <p>La República de los Niños es un parque educativo en Manuel Gonnet, Provincia de Buenos Aires. Es considerado el primer parque temático de América y reproduce un conglomerado urbano y rural en escala acorde a niños de 10 años, con todas las instituciones correspondientes al sistema democrático: parlamento, casa de gobierno, palacio de justicia, iglesia, puerto, teatro, aeropuerto, restaurantes y hoteles</p>
-            <ul>
-              <li>Duración: </li>
-              <li>Próximas fechas: </li>
-              <li>Incluye: </li>
-            </ul>
-            <a href="#" class="btn btn-primary">Reservar</a>
-          </div>
-
-        </div>
+  <section id=producto class="container-fluid p-3">
+    <div class="row">
+      <div class="col-sm-12 col-xl-7" id="excursion">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
       </div>
+      <div class="col-sm-12 col-xl-5">
+        <h2 class="display-5">Recorré la República de los Niños</h2>
+        <p class="lead">La República de los Niños es un parque educativo en Manuel Gonnet, Provincia de Buenos Aires. Es considerado el primer parque temático de América y reproduce un conglomerado urbano y rural en escala acorde a niños de 10 años, con todas las instituciones correspondientes al sistema democrático: parlamento, casa de gobierno, palacio de justicia, iglesia, puerto, teatro, aeropuerto, restaurantes, hoteles, etc. </p>
+        <span><a class="btn btn-primary" href="carro.php" role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span> 
+      </div>
+    </div>
+
   </section>
 
-    <?php include_once "footer.php" ?>
+  <?php include_once "footer.php" ?>
 
 
 

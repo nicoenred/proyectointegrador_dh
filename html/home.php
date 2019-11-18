@@ -23,132 +23,107 @@
       </div>
       <div class="row p-0">
         <div class="col text-center">
-          <button type="button" href="detalleproducto.php" class="btn btn-primary btn-lg text-center  center">
-            <span> Conocé nuestras excursiones </span>
-
-          </button>
+          <a class="btn btn-primary btn-lg" href="listaproductos.php" role="button">Conocé nuestros recorridos</a>
         </div>
       </div>
 
-  </section>
+    </section>
 
-  <!-- Page Content -->
-  <div class="TODO">
+  <div class="container text-center" id="about">
+    <h1>
+     SECCION ABOUT
+   </h1>
+  </div>
 
-
-  <div class="container-fluid">
+  <div class="container-fluid" id="productos_home">
+    <p class="h2 text-center text-uppercase"><strong>excursiones populares</strong></p>
     <div class="row">
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="detalleproducto.html"><img class="card-img-top" src="..\images\20120308120659_misteriosdelaplata.blogspot.com1.jpg" alt=""></a>
+          <a href="detalleproducto.php"><img class="card-img-top" src="../images/excursiones/republica_ninos/01.jpg" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="detalleproducto.html">Item One</a>
+              <a href="detalleproducto.php">Repúbica de los Niños</a>
             </h4>
-            <h5>$24.99</h5>
+            <h5>$100.00</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="detalleproducto.html"><img class="card-img-top" src="..\images\20190704-turismo-en-la-plata-749599.jpg" alt=""></a>
+          <a href="detalleproducto.php"><img class="card-img-top" src="../images/excursiones/republica_ninos/01.jpg" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="detalleproducto.html">Item Two</a>
+              <a href="detalleproducto.php">Repúbica de los Niños</a>
             </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="detalleproducto.html"><img class="card-img-top" src="..\images\municipalidad.jpg" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="detalleproducto.html">Item Three</a>
-            </h4>
-            <h5>$24.99</h5>
+            <h5>$100.00</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="detalleproducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="detalleproducto.php"><img class="card-img-top" src="../images/excursiones/republica_ninos/01.jpg" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="detalleproducto.html">Item Four</a>
+              <a href="detalleproducto.php">Repúbica de los Niños</a>
             </h4>
-            <h5>$24.99</h5>
+            <h5>$100.00</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="detalleproducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="detalleproducto.php"><img class="card-img-top" src="../images/excursiones/republica_ninos/01.jpg" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="detalleproducto.html">Item Five</a>
+              <a href="detalleproducto.php">Repúbica de los Niños</a>
             </h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="detalleproducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="detalleproducto.html">Item Six</a>
-            </h4>
-            <h5>$24.99</h5>
+            <h5>$100.00</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <a href="detalleproducto.php"><img class="card-img-top" src="../images/excursiones/republica_ninos/01.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="detalleproducto.php">Repúbica de los Niños</a>
+            </h4>
+            <h5>$100.00</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <a href="detalleproducto.php"><img class="card-img-top" src="../images/excursiones/republica_ninos/01.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="detalleproducto.php">Repúbica de los Niños</a>
+            </h4>
+            <h5>$100.00</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
           </div>
         </div>
       </div>
 
     </div>
-    </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.col-lg-9 -->
 
-</div>
-<!-- /.row -->
-
-</div>
 <!-- /.container -->
-<?php  include_once "formulario-contacto.php"?>
+  <section class="container-fluid" id="contact-form">
+    <?php  include_once "formulario-contacto.php"?>
+  </section
+
 <!-- Footer -->
-<?php include_once "footer.php" ?>
+  <?php include_once "footer.php" ?>
 
 <!-- Bootstrap core JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
