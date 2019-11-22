@@ -1,5 +1,7 @@
-<p class="h2 text-center  text-uppercase"><strong>escribinos</strong></p>
-<div class="container">
+
+
+<p class="h2 text-center  text-uppercase m-4"><strong>escribinos</strong></p>
+<div class="container p-3" id="contact-form">
   <form>
     <div class="form-group">
       <label for="exampleFormControlInput1"><strong>Email</strong></label>
