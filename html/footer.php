@@ -2,7 +2,7 @@
   <footer class="py-5 bg-dark" class="footerstyle">
 
   <div class="row" class="container-fluid">
-    <div class="col" class="col-md-4 col-lg-4">
+    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
       <div class="m-0 text-center text-white">Mapa del Sitio</div>
       <div class="navfoot">
           <ul>
@@ -16,7 +16,7 @@
           </ul>
       </div>
     </div>
-    <div class="col" class="col-md-4 col-lg-4">
+    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 <div class="m-0 text-center text-white">Social Media</div>
       <div class="navfoot">
           <ul>
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="col" class="col-md-4 col-lg-4">
+    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
      <div class="m-0 text-center text-white">Políticas de uso</div>
       <div class="navfoot">
           <ul>
