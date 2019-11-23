@@ -1,5 +1,5 @@
 
-  <footer class="py-5 bg-dark" class="footerstyle">
+  <footer class="py-5 bg-dark footerstyle">
 
   <div class="row" class="container-fluid">
     <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
