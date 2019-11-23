@@ -342,3 +342,22 @@ h1,h2,h3,h4,h5 {
   -o-background-size: cover;
   background-size: cover;
 }
+
+/* Style de Footer */
+
+
+
+ul{
+  list-style: none;
+  text-decoration: none;
+}
+.navfoot {
+  text-align: center;
+  margin-right: 38px;
+}
+.footerstyle {
+  border-radius: 25px;
+}
+.footerstyle .row .col .navfoot ul li a{
+  text-decoration: none;
+}
