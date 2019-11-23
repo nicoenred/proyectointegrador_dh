@@ -7,12 +7,24 @@ h1,h2,h3,h4,h5 {
   font-weight: 700;
 }
 
+
 .navbar-nav{
   margin-left: auto;
 }
 
 #nav_header span .img-fluid {
     max-width: 20%;
+}
+
+@media (max-width: 990px) {
+  ul #barra {
+      display: block;
+      padding-left: 0;
+      margin: 0 auto;
+      list-style: none;
+      text-align: center;
+      list-style: none;
+  }
 }
 
 /* ACÁ EMPIEZA REGISTRO*/
@@ -346,6 +358,9 @@ h1,h2,h3,h4,h5 {
 /* Style de Footer */
 
 
+footer {
+  background-color: #CCCECF;
+}
 
 ul{
   list-style: none;
@@ -360,4 +375,11 @@ ul{
 }
 .footerstyle .row .col .navfoot ul li a{
   text-decoration: none;
+}
+
+@include media-breakpoint-up(sm) {
+  .navfoot li {
+    list-style: inline;
+
+  }
 }
