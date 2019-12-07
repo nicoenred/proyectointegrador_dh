@@ -1,3 +1,100 @@
+<?php
+$ok=false;
+$nombre = "";
+$email = "";
+$username = "";
+$ciudad = "";
+$provincia = "";
+if ($_POST) {
+
+  $usuario = [
+    "name" => $_POST["name"],
+    "email" => $_POST["email"],
+    "username" =>$_POST["username"],
+    "ciudad"=>$_POST["ciudad"],
+    "provincia"=>$_POST["provincia"],
+    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
+  ];
+
+    $userjson=file_get_contents("manejo1.txt");
+    $users=json_decode($userjson,true);
+
+
+      $aux=filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+      if((strlen($_POST["name"]) == 0)&&(!($aux))&&(strlen($_POST["username"]) == 0)&&(strlen($_POST["ciudad"]) == 0)&&(strlen($_POST["provincia"]) == 0)){
+        echo "Por favor escribe tu nombre <br>";
+        echo "Por favor ingresa un mail <br>";
+        echo "Por favor ingresa un username <br>";
+        echo "Por favor ingresa una ciudad <br>";
+        echo "Por favor ingresa una provincia <br>";
+      }else{
+        if((strlen($_POST["name"]) == 0)||(!($aux))||(strlen($_POST["username"]) == 0)||(strlen($_POST["ciudad"]) == 0)||(strlen($_POST["provincia"]) == 0)){
+          if((strlen($_POST["name"])) == 0) {
+          echo "Por favor escribe tu nombre <br>";
+          }
+        if (!$aux){
+           echo "Por favor ingresa un mail <br>";
+         }
+         if((strlen($_POST["username"])) == 0) {
+         echo "Por favor escribe tu username <br>";
+         }
+         if((strlen($_POST["ciudad"])) == 0) {
+         echo "Por favor escribe tu ciudad <br>";
+         }
+         if((strlen($_POST["provincia"])) == 0) {
+         echo "Por favor escribe tu provincia <br>";
+         }
+       }else{
+         $nombre= $_POST["name"];
+         $email= $_POST["email"];
+         $username = $_POST["username"];
+         $ciudad = $_POST["ciudad"];
+         $provincia = $_POST["provincia"];
+
+    }
+
+
+    if (isset($_POST["email"])) {
+
+/*
+  Pregunto si el array tiene elementos.
+  Si tiene elementos recorro el array y comparo el email del elemento con el mail solicitado en el form.
+  Si lo encuentro, hago un break para que no siga buscando.
+  sino inserto el usuario.
+*/
+      if(count($users["usuarios"]) > 0 ){
+        foreach ($users["usuarios"] as $valor) {
+
+            if (($_POST["email"]==$valor["email"])&&($_POST["username"]==$valor["username"])) {
+              echo "Email ya utilizado <br> ";
+              echo "Usuario ya utilizado <br> " ;
+              break;} else {
+                if (($_POST["email"]==$valor["email"])||($_POST["username"]==$valor["username"])) {
+                  if ($_POST["email"]==$valor["email"]) {
+                    echo "Email ya utilizado <br> ";
+                  }
+                  if($_POST["username"]==$valor["username"]) {
+                    echo "Usuario ya utilizado <br> ";
+                  }
+
+            }else{
+              $users["usuarios"][]=$usuario;
+              file_put_contents("manejo1.txt",json_encode($users));
+            }
+          }}
+      }else{
+        $users["usuarios"][]=$usuario;
+        file_put_contents("manejo1.txt",json_encode($users));
+      }
+
+
+    }
+
+
+
+    }   }
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,35 +110,104 @@
 
   <?php include_once "header.php" ?>
 
+
+
   <section class="container" id="form-registro">
+
     <p class="h2 text-center text-uppercase"><strong>registrate</strong></p>
 
+<section>
+
+      <div class="container">
 
 
-    <section>
-      <form class="needs-validation" novalidate>
+        <div class='row' id="rowregis">
+                  <form id='register' class="registros" action='' method='post'>
+                    <div class="col-xs-5" class='container'>
+                        <label for='name' >Nombre completo: </label><br/>
+                        <input type='text' name='name' id='name' value='' maxlength="50" /><br/>
+                        <span id='register_name_errorloc' class='error'></span>
+                    </div>
+                    <div class="col-xs-5" class='container'>
+                        <label for='email' >Email:</label><br/>
+                        <input type='text' name='email' id='email' value='' maxlength="50" /><br/>
+                        <span id='register_email_errorloc' class='error'></span>
+                    </div>
+                    <div class="col-xs-5" class='container'>
+                        <label for='username' >Nombre de usuario*:</label><br/>
+                        <input type='text' name='username' id='username' value='' maxlength="50" /><br/>
+                        <span id='register_username_errorloc' class='error'></span>
+                    </div>
+                    <div class="col-xs-5" class='container' >
+                        <label for='password' >Contraseña*:</label><br/>
+                        <div class='pwdwidgetdiv' id='thepwddiv' ></div>
+                        <input type='password' name='password' id='password' maxlength="50" />
+                        <div id='register_password_errorloc' class='error' style='clear:both'></div>
+                    </div>
+
+                      <div class="col-xs-5">
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" name='ciudad' class="form-control" id="ciudad" placeholder="ciudad">
+                      </div>
+
+                      <div class="col-xs-5">
+                     <label  for="provincia">Provincia</label>
+                     <select name="provincia" id="provincia" class="form-control">
+                       <option selected>Provincia...</option>
+                       <option>Buenos Aires</option>
+                       <option>Río Negro</option>
+                       <option>Tierra del Fuego</option>
+                       <option>Santa Cruz</option>
+                       <option>Chubut</option>
+                       <option>Neuquén</option>
+                       <option>La Pampa</option>
+                       <option>Mendoza</option>
+                       <option>Santa Fé</option>
+                       <option>San Juan</option>
+                       <option>Corrientes</option>
+                       <option>Chaco</option>
+                       <option>Entre Rios</option>
+                       <option>Córdoba</option>
+                       <option>Santiago del Estero</option>
+                       <option>Formosa</option>
+                       <option>Jujuy</option>
+                       <option>Salta</option>
+                       <option>Tucumán</option>
+                       <option>Catamarca</option>
+                       <option>La Rioja</option>
+                       <option>Misiones</option>
+                       <option>San Luis</option>
+
+                     </select>
+                    </div>
+                    <br/>
+                    <div class='container'>
+                      <input type='submit' name='Submit' value='Enviar' />
+                    </div>
+                  </form>
+
+        </div>
+        </div>
+      </section>
+
+    <!--<section>
+    <form class="needs-validation" novalidate>
         <div class="form-row">
           <div class="col-md-4 mb-3">
-            <label for="validationCustom01">Nombre</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Pepe" required>
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" required>
             <div class="valid-feedback">
               Looks good!
             </div>
+
           </div>
           <div class="col-md-4 mb-3">
-            <label for="validationCustom02">Apellido</label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Fulanito" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="validationCustomUsername">Nombre de usuario</label>
+            <label for="username">Nombre de usuario</label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
               </div>
-              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Nombre de usuario" aria-describedby="inputGroupPrepend" required>
+              <input type="text" class="form-control" name="username" id="username" placeholder="Nombre de usuario" aria-describedby="inputGroupPrepend" required>
               <div class="invalid-feedback">
                 Por favor, elija un nombre de usuario.
               </div>
@@ -88,9 +254,9 @@
   </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
   -->
-    </form>
+    <!--</form>-->
 
-    <script>
+<!--    <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
     'use strict';
@@ -116,35 +282,15 @@
     <form>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">Correo electrónico</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ingrese su correo electrónico, por ejemplo: pepefulanito@gmail.com">
+          <label for="email">Correo electrónico</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="abc123@gmail.com">
         </div>
         <div class="form-group col-md-6">
-          <label for="inputPassword4">Contraseña</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="Ingrese su contraseña">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputNumTel">Número de teléfono</label>
-          <input type="NumTel" class="form-control" id="inputNumTel" placeholder="Ingrese su número de teléfono">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputDNI">Documento de Identidad</label>
-          <input type="DNI" class="form-control" id="inputDNI" placeholder="Ingrese su Documento Nacional de Identidad">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputProfesion">Profesión u ocupación</label>
-          <input type="Profesion" class="form-control" id="inputProfesion" placeholder="Ingrese su profesión u ocupación">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputNumTel2">Número de teléfono adicional</label>
-          <input type="NumTel2" class="form-control" id="inputNumTel2" placeholder="Ingrese un número de teléfono adicional de emergencia">
-        </div>
-      </div>
+          <label for="password">Contraseña</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contraseña">
+        </div>-->
 
-      <div class="form-group">
-        <label for="inputAddress">Dirección</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Calle Melancolía">
-      </div>
+
 
 
 
@@ -154,15 +300,15 @@
       <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
     </div>
   -->
-      <div class="form-row">
+    <!--  <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputCity">Ciudad de Origen</label>
-        <input type="text" class="form-control" id="inputCity">
+        <label for="ciudad">Ciudad de Origen</label>
+        <input type="text" name="ciudad" class="form-control" id="ciudad" placeholder="Ciudad">
       </div>
       <div class="form-group col-md-4">
-        <label for="inputState">Provincia</label>
-        <select id="inputState" class="form-control">
-          <option selected>Elija su provincia...</option>
+        <label  for="provincia">Provincia</label>
+        <select name="provincia" id="provincia" class="form-control">
+          <option selected>Provincia...</option>
           <option>Buenos Aires</option>
           <option>Río Negro</option>
           <option>Tierra del Fuego</option>
@@ -187,13 +333,7 @@
           <option>Misiones</option>
           <option>San Luis</option>
 
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Código Postal</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-      </div>
+        </select>-->
           <!--
     <div class="form-group">
     <div class="form-check">
@@ -204,10 +344,10 @@
     </div>
     </div>
     -->
-      <button type="submit" class="btn btn-primary">Enviar</button>
+    <!--  <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
     </section>
-  </section>
+  </section>-->
 
 <?php include_once "footer.php" ?>
 

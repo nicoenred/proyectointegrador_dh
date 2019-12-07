@@ -28,7 +28,9 @@ h1,h2,h3,h4,h5 {
 }
 
 /* ACÁ EMPIEZA REGISTRO*/
-
+.registros {
+  margin: 0 auto;
+}
 #form-registro {
   margin: 4vh auto;
 }
