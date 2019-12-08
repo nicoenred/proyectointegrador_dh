@@ -1,6 +1,12 @@
 <?php
   session_start();
- ?>
+/*
+Lo mas cercano a tratar de dejar una imagen de perfil por default en caso de que el usuario no suba ninguna imagen
+            <img class="img-fluid" src="../images/fotosperfil/<?php if($_FILES["imagenperfil"]["name"]) {echo "profiledefault.jpg";} else {echo "foto.jpg";}?>" alt=""/>
+Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efectivamente.
+*/
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,22 +23,51 @@
   <?php include_once "header.php" ?>
 
   <div class="container emp-profile">
-    <form method="post">
+    <form action='' method='post' enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-4">
           <div class="profile-img">
-            <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-            <div class="file btn btn-lg btn-primary">
-              Cambiar Foto
-              <input type="file" name="file"/>
-            </div>
+
+            <img class="img-fluid" src="../images/fotosperfil/foto.jpg" alt=""/>
+            <?php
+            if ($_FILES){
+              if ($_FILES["imagenperfil"]["error"]!=0){
+               echo "Hubo un error al cargar la imagen de perfil <br>";
+            }
+              else {
+                $ext = pathinfo($_FILES["imagenperfil"]["name"] , PATHINFO_EXTENSION);
+                if ($ext != "jpg" && $ext != "jpeg" && $ext != "png"){
+                  echo "La imagen debe ser jpg, jpeg o png <br>";
+                }
+
+                else {
+                  move_uploaded_file ($_FILES["imagenperfil"]["tmp_name"],"../images/fotosperfil/foto.jpg");
+                }
+              }
+
+            }
+             ?>
+                <br>
+                <br>
+                <br>
+                <div class="file btn btn-lg btn-primary">
+                    Cambiar Foto
+                <input type="file" name="imagenperfil" value=""/>
+                </div>
+                <div class="btn-lg btn-primary">
+                  <input class="btn btn-primary" type="submit" value="Subir foto">
+                </div>
+                <!--
+              <div class='btn btn-lg btn-primary container'>
+                <input type='submit' name='Submit' value='Subir foto'/>
+              </div>
+            -->
           </div>
-          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar"/>
         </div>
         <div class="col-md-8">
           <div class="profile-head">
             <h4>
-              Nombre de Usuario
+              <span> <?php echo $_SESSION["nombreUsuario"]; ?>  </span>
             </h4>
             <h6>
               Mini bio - Lorem ipsum dolor sit.
@@ -54,7 +89,7 @@
                       <label>Id</label>
                     </div>
                     <div class="col-md-6">
-                      <p>@usuario_ID</p>
+                      <p></p>
                     </div>
                   </div>
                   <div class="row">
@@ -62,7 +97,7 @@
                       <label>Nombre</label>
                     </div>
                     <div class="col-md-6">
-                      <p>Nombre Usuario</p>
+                      <p><?php echo $_SESSION["username"]; ?></p>
                     </div>
                   </div>
                   <div class="row">
@@ -70,7 +105,7 @@
                       <label>Email</label>
                     </div>
                     <div class="col-md-6">
-                      <p>user12345@gmail.com</p>
+                      <p><?php echo $_SESSION["emailUsuario"]; ?></p>
                     </div>
                   </div>
                   <div class="row">
