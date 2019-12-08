@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,51 +13,100 @@
 
 <body>
 
+<?php if (isset($_SESSION["nombreUsuario"])): ?>
 
-
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav_header">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="home.php">
-        <img src="../images/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        entre <strong>Diagonales</strong> /
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <ul  id="barra" class="nav nav-pills">
-            <li  class="nav-item">
-              <a class="nav-link" href="home.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="listaproductos.php">Excursiones</a>
-            </li>
-            <li  class="nav-item">
-              <a class="nav-link" href="about.php">Sobre Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.php">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="registro.php">Registarse</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="login.php">Login</a>
-            </li>
-            <li>
-              <a href="carro.php"><ion-icon size="large" name="cart"></ion-icon></a>
-            </li>
-            <li>
-              <a href="fyq.php"><ion-icon size="large" name="help"></ion-icon></ion-icon></a>
-            </li>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav_header">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.php">
+          <img src="../images/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          entre <strong>Diagonales</strong> /
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <ul  id="barra" class="nav nav-pills">
+              <li  class="nav-item">
+                <a class="nav-link" href="home.php">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="listaproductos.php">Excursiones</a>
+              </li>
+              <li  class="nav-item">
+                <a class="nav-link" href="about.php">Sobre Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.php">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="user.php?id=<?= $_SESSION["nombreUsuario"] ?>">Mi Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="logout.php">Cerrar Sesion</a>
+              </li>
+              <li>
+                <a href="carro.php"><ion-icon size="large" name="cart"></ion-icon></a>
+              </li>
+              <li>
+                <a href="fyq.php"><ion-icon size="large" name="help"></ion-icon></ion-icon></a>
+              </li>
+            </ul>
           </ul>
-        </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
+
+<?php else: ?>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav_header">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.php">
+          <img src="../images/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          entre <strong>Diagonales</strong> /
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <ul  id="barra" class="nav nav-pills">
+              <li  class="nav-item">
+                <a class="nav-link" href="home.php">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="listaproductos.php">Excursiones</a>
+              </li>
+              <li  class="nav-item">
+                <a class="nav-link" href="about.php">Sobre Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.php">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="registro.php">Registarse</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="login.php">Login</a>
+              </li>
+              <li>
+                <a href="carro.php"><ion-icon size="large" name="cart"></ion-icon></a>
+              </li>
+              <li>
+                <a href="fyq.php"><ion-icon size="large" name="help"></ion-icon></ion-icon></a>
+              </li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<?php endif; ?>
+
 
 </body>
 </html>

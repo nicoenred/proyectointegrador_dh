@@ -1,3 +1,7 @@
+<?php
+  session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +28,7 @@
       <div class="col-sm-12 col-xl-5">
         <h2 class="display-5">Recorré la República de los Niños</h2>
         <p class="lead">La República de los Niños es un parque educativo en Manuel Gonnet, Provincia de Buenos Aires. Es considerado el primer parque temático de América y reproduce un conglomerado urbano y rural en escala acorde a niños de 10 años, con todas las instituciones correspondientes al sistema democrático: parlamento, casa de gobierno, palacio de justicia, iglesia, puerto, teatro, aeropuerto, restaurantes, hoteles, etc. </p>
-        <span><a class="btn btn-primary" href="carro.php" role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span> 
+        <span><a class="btn btn-primary" href="carro.php" role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span>
       </div>
     </div>
 

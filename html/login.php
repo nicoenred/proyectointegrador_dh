@@ -1,3 +1,41 @@
+<?php
+
+session_start();
+require_once 'controladores/helpers.php';
+require_once 'controladores/controladorValidacion.php';
+require_once 'controladores/controladorUsuario.php';
+
+$errorLogin = "";
+
+if ($_POST) {
+  $errorLogin= validarFormulario($_POST); //Validacion del registro
+
+  if (count($errorLogin) == 0) {
+    $bbddUsuarios= file_get_contents("usuarios.json");
+    $bbddUsuarios= explode(PHP_EOL, $bbddUsuarios);
+    array_pop($bbddUsuarios);
+    foreach ($bbddUsuarios as $user) {
+      $userFinal = json_decode($user, true);
+      if ($userFinal["email"] == $_POST["email"]) {
+        if (password_verify($_POST["password"], $userFinal["password"])) {
+          $_SESSION["emailUsuario"] = $userFinal["email"];
+          $_SESSION["nombreUsuario"]= $userFinal["nombre"];
+          $_SESSION["username"]= $userFinal["username"];
+          $_SESSION["password"]= $userFinal["password"];
+          if(isset($_POST['recordarme']) && $_POST['recordarme'] == 'on') {
+            setcookie('emailUsuario', $userFinal['email'], time()+60*60*24);
+            setcookie('passUsuario', $userFinal['password'], time()+60*60*24);
+          }
+          header("Location: home.php");
+        }
+      }
+    }
+  }
+}
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,22 +53,29 @@
   <section class="container" id="form-login">
     <p class="h2 text-center text-uppercase"><strong>te damos la bienvenida</strong></p>
 
-    <form>
+    <form action="" method="post">
+
       <div class="form-group">
-        <label for="exampleInputEmail1">Correo electrónico</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su correo electrónico">
-        <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo personal ni sus datos.</small>
+        <label for="exampleInputEmail1">Ingresá tu dirección de correo electrónico</label>
+        <input type="email" name="email" value="<?= persistirDato($errorLogin, 'email') ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small><?= isset($errorRegistro['email']) ? $errorRegistro['email'] : ""  ?></small>
       </div>
+
       <div class="form-group">
-        <label for="exampleInputPassword1">Contraseña</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su contraseña">
+        <label for="exampleInputPassword1">Ingresá la contraseña</label>
+        <input type="password" name="password" value="" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <small><?= isset($errorRegistro['password']) ? $errorRegistro['password'] : ""  ?></small>
       </div>
+
       <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Recordar contraseña en su próxima sesión</label>
+        <input type="checkbox" name="recordarme" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Recordame</label>
       </div>
-      <button type="submit" class="btn btn-primary">Ingresar</button>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+
     </form>
+
   </section>
 
 
