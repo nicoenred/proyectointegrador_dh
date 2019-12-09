@@ -14,6 +14,7 @@ if ($_POST) {
     $bbddUsuarios= file_get_contents("usuarios.json");
     $bbddUsuarios= explode(PHP_EOL, $bbddUsuarios);
     array_pop($bbddUsuarios);
+
     foreach ($bbddUsuarios as $user) {
       $userFinal = json_decode($user, true);
       if ($userFinal["email"] == $_POST["email"]) {

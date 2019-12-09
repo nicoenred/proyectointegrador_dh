@@ -1,12 +1,17 @@
 <?php
   session_start();
+  require_once 'controladores/helpers.php';
+  require_once 'controladores/controladorValidacion.php';
+  require_once 'controladores/controladorUsuario.php';
 /*
 Lo mas cercano a tratar de dejar una imagen de perfil por default en caso de que el usuario no suba ninguna imagen
             <img class="img-fluid" src="../images/fotosperfil/<?php if($_FILES["imagenperfil"]["name"]) {echo "profiledefault.jpg";} else {echo "foto.jpg";}?>" alt=""/>
 Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efectivamente.
+            con session
+                        <img class="img-fluid" src="../images/fotosperfil/<?php if($_SESSION["emailUsuario"]){echo "lalala@gmail.com.jpg";} else {echo "profiledefault.jpg";}?> " alt=""/>
+
 */
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,32 +26,38 @@ Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efec
 </head>
 <body>
   <?php include_once "header.php" ?>
-
   <div class="container emp-profile">
     <form action='' method='post' enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-4">
           <div class="profile-img">
 
-            <img class="img-fluid" src="../images/fotosperfil/foto.jpg" alt=""/>
             <?php
+
             if ($_FILES){
+
               if ($_FILES["imagenperfil"]["error"]!=0){
                echo "Hubo un error al cargar la imagen de perfil <br>";
             }
               else {
                 $ext = pathinfo($_FILES["imagenperfil"]["name"] , PATHINFO_EXTENSION);
-                if ($ext != "jpg" && $ext != "jpeg" && $ext != "png"){
-                  echo "La imagen debe ser jpg, jpeg o png <br>";
-                }
+                    if ($ext != "jpg" && $ext != "jpeg" && $ext != "png"){
+                      echo "La imagen debe ser jpg, jpeg o png <br>";
+                    }
 
-                else {
-                  move_uploaded_file ($_FILES["imagenperfil"]["tmp_name"],"../images/fotosperfil/foto.jpg");
-                }
+                    else {
+                      move_uploaded_file ($_FILES["imagenperfil"]["tmp_name"],"../images/fotosperfil/" . $_SESSION["emailUsuario"] . "." . "$ext");
+                      $_SESSION["flag"] = 1;
+                    }
               }
 
             }
              ?>
+               <img class="img-fluid" src="../images/fotosperfil/<?php
+               if(isset($_SESSION["flag"])){
+                   echo $_SESSION["emailUsuario"] . "." . "jpg";
+                 }
+              else {echo "profiledefault.jpg";}?> " alt=""/>
                 <br>
                 <br>
                 <br>
