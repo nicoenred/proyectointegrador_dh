@@ -12,20 +12,17 @@ if ($_POST) {
 
   if (count($errorLogin) == 0) {
     $bbddUsuarios= file_get_contents("usuarios.json");
-    $bbddUsuarios= explode(PHP_EOL, $bbddUsuarios);
-    array_pop($bbddUsuarios);
-
-    foreach ($bbddUsuarios as $user) {
-      $userFinal = json_decode($user, true);
-      if ($userFinal["email"] == $_POST["email"]) {
-        if (password_verify($_POST["password"], $userFinal["password"])) {
-          $_SESSION["emailUsuario"] = $userFinal["email"];
-          $_SESSION["nombreUsuario"]= $userFinal["nombre"];
-          $_SESSION["username"]= $userFinal["username"];
-          $_SESSION["password"]= $userFinal["password"];
+    $bbddUsuariosArray= json_decode($bbddUsuarios, true);
+    foreach ($bbddUsuariosArray as $user) {
+      if ($user["email"] == $_POST["email"]) {
+        if (password_verify($_POST["password"], $user["password"])) {
+          $_SESSION["emailUsuario"] = $user["email"];
+          $_SESSION["nombreUsuario"]= $user["nombre"];
+          $_SESSION["username"]= $user["username"];
+          $_SESSION["password"]= $user["password"];
           if(isset($_POST['recordarme']) && $_POST['recordarme'] == 'on') {
-            setcookie('emailUsuario', $userFinal['email'], time()+60*60*24);
-            setcookie('passUsuario', $userFinal['password'], time()+60*60*24);
+            setcookie('emailUsuario', $user['email'], time()+60*60*24);
+            setcookie('passUsuario', $user['password'], time()+60*60*24);
           }
           header("Location: home.php");
         }

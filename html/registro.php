@@ -10,9 +10,11 @@ $errorRegistro="";
 if ($_POST) {
   $errorRegistro= validarFormulario($_POST); //Validacion del registro
   if (count($errorRegistro)== 0) {
+    $usuarios = file_get_contents('usuarios.json');
+    $usuariosArray = json_decode($usuarios, true);
     $usuario = armarArrayUsuario($_POST);
-    $usuario = json_encode($usuario);
-    file_put_contents('usuarios.json',$usuario . PHP_EOL, FILE_APPEND);
+    $usuariosArray[]=$usuario;
+    file_put_contents('usuarios.json',json_encode($usuariosArray));
     header("Location: login.php");
   }
 }
