@@ -2,7 +2,7 @@
 
 session_start();
 require_once 'controladores/helpers.php';
-require_once 'controladores/controladorValidacion.php';
+require_once 'controladores/controladorValidacionLogin.php';
 require_once 'controladores/controladorUsuario.php';
 
 $errorLogin = "";

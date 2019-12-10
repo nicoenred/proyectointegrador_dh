@@ -2,7 +2,7 @@
 
 session_start();
 require_once 'controladores/helpers.php';
-require_once 'controladores/controladorValidacionRegistro.php';
+require_once 'controladores/controladorValidacionLogin.php';
 require_once 'controladores/controladorUsuario.php';
 
 $errorRegistro="";
@@ -12,12 +12,28 @@ if ($_POST) {
   if (count($errorRegistro)== 0) {
     $usuarios = file_get_contents('usuarios.json');
     $usuariosArray = json_decode($usuarios, true);
-    $usuario = armarArrayUsuario($_POST);
-    $usuariosArray[]=$usuario;
+
+    foreach ($usuariosArray as $key => $value) {
+      if ($value["email"]==$_SESSION["emailUsuario"]) {
+        $usuariosArray[$key]["email"]=$_POST["email"];
+        $usuariosArray[$key]["nombre"]=$_POST["nombre"];
+        $usuariosArray[$key]["username"]=$_POST["username"];
+        $usuariosArray[$key]["password"]=password_hash($_POST['password'], PASSWORD_DEFAULT);
+        session_destroy();
+        session_start();
+        $_SESSION["emailUsuario"] = $_POST["email"];
+        $_SESSION["nombreUsuario"]= $_POST["nombre"];
+        $_SESSION["username"]= $_POST["username"];
+        $_SESSION["password"]= $usuariosArray[$key]["password"];
+      }
+    }
     file_put_contents('usuarios.json',json_encode($usuariosArray));
-    header("Location: login.php");
+
+
+    header("Location: user.php");
   }
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +45,7 @@ if ($_POST) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <?php include_once "estilo.php" ?>
-  <title>| REGISTRO |</title>
+  <title>| EDITA TUS DATOS |</title>
 
 </head>
 <body>
@@ -37,7 +53,7 @@ if ($_POST) {
   <?php include_once "header.php" ?>
 
   <section class="container" id="form-registro">
-    <p class="h2 text-center text-uppercase"><strong>registrate</strong></p>
+    <p class="h2 text-center text-uppercase"><strong>editá tus datos</strong></p>
     <form action="" method="post">
 
       <div class="row">
@@ -50,7 +66,7 @@ if ($_POST) {
 
         <div class="col">
           <label for="username">Ingresá tu nombre de usuario</label>
-          <input type="text" id="username" name="username" value="" class="form-control" placeholder="Nombre de usuario">
+          <input type="text" id="username" name="username" value="<?= persistirDato($errorRegistro, 'username') ?>" class="form-control" placeholder="Nombre de usuario">
           <small><?= isset($errorRegistro['username']) ? $errorRegistro['username'] : ""  ?></small>
         </div>
 
