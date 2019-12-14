@@ -40,17 +40,36 @@
 
                     else {
                       move_uploaded_file ($_FILES["imagenperfil"]["tmp_name"],"../images/fotosperfil/" . $_SESSION["emailUsuario"] . "." . "$ext");
-                      $_SESSION["flag"] = 1;
+
+                      $usuarios = file_get_contents('usuarios.json');
+                      $usuariosArray = json_decode($usuarios, true);
+
+                        foreach ($usuariosArray as $key => $value) {
+                          if ($value["email"]==$_SESSION["emailUsuario"]) {
+                            $usuariosArray[$key]["imagen"]=$_SESSION["emailUsuario"] . "." . $ext;
+                          }
+                        }
+                        file_put_contents('usuarios.json',json_encode($usuariosArray));
+
+                      }
+
+
                     }
               }
 
-            }
+
              ?>
                <img class="img-fluid" src="../images/fotosperfil/<?php
-               if(isset($_SESSION["flag"])){
-                   echo $_SESSION["emailUsuario"] . "." . "jpg";
-                 }
-              else {echo "profiledefault.jpg";}?> " alt=""/>
+
+                         $usuarios = file_get_contents('usuarios.json');
+                         $usuariosArray = json_decode($usuarios, true);
+                           foreach ($usuariosArray as $key => $value) {
+                             if ($value["email"]==$_SESSION["emailUsuario"]){
+                             if (strlen(($value["imagen"]))!=0) {
+                               echo $usuariosArray[$key]["imagen"];
+                             }
+                            else {echo "profiledefault.jpg";}}}?>" alt=""/>
+
                 <br>
                 <br>
                 <br>
