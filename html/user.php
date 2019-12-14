@@ -92,7 +92,7 @@
             <h4>
               <span> ¡Bienvenido <?php echo $_SESSION["nombreUsuario"]; ?>!  </span>
             </h4>
-            <a class="btn btn-outline-primary" href="editUser.php" role="button">Editar información</a>
+            <a class="btn btn-outline-primary editarinfo" href="editUser.php" role="button">Editar información</a>
           </div>
             <div class="col-md-12 p-0">
               <ul class="nav nav-tabs" id="myTab" role="tablist">
