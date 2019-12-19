@@ -317,6 +317,9 @@ h1,h2,h3,h4,h5 {
     font-weight: 600;
     color: #0062cc;
 }
+.editarinfo{
+margin-bottom: 10px; 
+}
 /*CONTACTO*/
 #contact-form {
   background-color: #343a40;

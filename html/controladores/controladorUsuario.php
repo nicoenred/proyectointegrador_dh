@@ -4,7 +4,8 @@ function armarArrayUsuario($array) {
     "nombre" => trim($array['nombre']),
     "username" => $array['username'],
     "email" => $array['email'],
-    "password" => password_hash($array['password'], PASSWORD_DEFAULT)
+    "password" => password_hash($array['password'], PASSWORD_DEFAULT),
+    "imagen" => ""
   ];
   return $usuarioParaGuardar;
 }

@@ -1,16 +1,9 @@
 <?php
   session_start();
   require_once 'controladores/helpers.php';
-  require_once 'controladores/controladorValidacion.php';
+  require_once 'controladores/controladorValidacionLogin.php';
   require_once 'controladores/controladorUsuario.php';
-/*
-Lo mas cercano a tratar de dejar una imagen de perfil por default en caso de que el usuario no suba ninguna imagen
-            <img class="img-fluid" src="../images/fotosperfil/<?php if($_FILES["imagenperfil"]["name"]) {echo "profiledefault.jpg";} else {echo "foto.jpg";}?>" alt=""/>
-Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efectivamente.
-            con session
-                        <img class="img-fluid" src="../images/fotosperfil/<?php if($_SESSION["emailUsuario"]){echo "lalala@gmail.com.jpg";} else {echo "profiledefault.jpg";}?> " alt=""/>
 
-*/
 ?>
 
 <!DOCTYPE html>
@@ -47,17 +40,36 @@ Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efec
 
                     else {
                       move_uploaded_file ($_FILES["imagenperfil"]["tmp_name"],"../images/fotosperfil/" . $_SESSION["emailUsuario"] . "." . "$ext");
-                      $_SESSION["flag"] = 1;
+
+                      $usuarios = file_get_contents('usuarios.json');
+                      $usuariosArray = json_decode($usuarios, true);
+
+                        foreach ($usuariosArray as $key => $value) {
+                          if ($value["email"]==$_SESSION["emailUsuario"]) {
+                            $usuariosArray[$key]["imagen"]=$_SESSION["emailUsuario"] . "." . $ext;
+                          }
+                        }
+                        file_put_contents('usuarios.json',json_encode($usuariosArray));
+
+                      }
+
+
                     }
               }
 
-            }
+
              ?>
                <img class="img-fluid" src="../images/fotosperfil/<?php
-               if(isset($_SESSION["flag"])){
-                   echo $_SESSION["emailUsuario"] . "." . "jpg";
-                 }
-              else {echo "profiledefault.jpg";}?> " alt=""/>
+
+                         $usuarios = file_get_contents('usuarios.json');
+                         $usuariosArray = json_decode($usuarios, true);
+                           foreach ($usuariosArray as $key => $value) {
+                             if ($value["email"]==$_SESSION["emailUsuario"]){
+                             if (strlen(($value["imagen"]))!=0) {
+                               echo $usuariosArray[$key]["imagen"];
+                             }
+                            else {echo "profiledefault.jpg";}}}?>" alt=""/>
+
                 <br>
                 <br>
                 <br>
@@ -78,11 +90,9 @@ Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efec
         <div class="col-md-8">
           <div class="profile-head">
             <h4>
-              <span> <?php echo $_SESSION["nombreUsuario"]; ?>  </span>
+              <span> ¡Bienvenido <?php echo $_SESSION["nombreUsuario"]; ?>!  </span>
             </h4>
-            <h6>
-              Mini bio - Lorem ipsum dolor sit.
-            </h6>
+            <a class="btn btn-outline-primary editarinfo" href="editUser.php" role="button">Editar información</a>
           </div>
             <div class="col-md-12 p-0">
               <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -100,7 +110,7 @@ Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efec
                       <label>Id</label>
                     </div>
                     <div class="col-md-6">
-                      <p></p>
+                      <p><?php echo $_SESSION["username"]; ?></p>
                     </div>
                   </div>
                   <div class="row">
@@ -108,7 +118,7 @@ Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efec
                       <label>Nombre</label>
                     </div>
                     <div class="col-md-6">
-                      <p><?php echo $_SESSION["username"]; ?></p>
+                      <p><?php echo $_SESSION["nombreUsuario"]; ?></p>
                     </div>
                   </div>
                   <div class="row">
@@ -117,14 +127,6 @@ Pero falla y hay que clickear dos veces en cargar imagen para que la cambie efec
                     </div>
                     <div class="col-md-6">
                       <p><?php echo $_SESSION["emailUsuario"]; ?></p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>Celular</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p>+54 0221 151234567 </p>
                     </div>
                   </div>
                 </div>
