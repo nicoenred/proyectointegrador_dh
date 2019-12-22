@@ -1,5 +1,8 @@
 <?php
   session_start();
+
+
+
  ?>
 
 <!DOCTYPE html>
@@ -74,137 +77,18 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-3">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
-      </div>
-      <div class="col-sm-12 col-md-9">
-        <h3>Recorré la República de los Niños</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
-        <a class="btn btn-primary" href="detalleproducto.php" role="button">Reservar</a>
-      </div>
-    </div>
 
+
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+      </div>
+      <div class="col-sm-12 col-md-9">
+        <h3>Recorré la República de los Niños</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ullam, veniam? Aliquam sit, eum, fugit nobis, reprehenderit rerum incidunt, sed cupiditate quisquam optio impedit molestiae ex pariatur magni eius unde velit quae et officiis vitae. Beatae dolores praesentium minima quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque iste corporis dolorum voluptates nam vitae error, nostrum beatae nisi ea, vel quibusdam libero consequatur molestiae veniam? Autem quis temporibus aspernatur quasi iusto facere reprehenderit repellat voluptates rem, labore nostrum sint.</p>
+        <a class="btn btn-primary" href="detalleproducto.php?id=republica_ninos" role="button">Reservar</a>
+      </div>
+    </div>
   </section>
 
   <?php include_once "footer.php" ?>

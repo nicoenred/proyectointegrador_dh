@@ -1,5 +1,23 @@
 <?php
   session_start();
+  require_once 'clases/excursion.php';
+  require_once 'controladores/helpers.php';
+
+  $excursiones = file_get_contents('cargaExcursion/excursiones.json');
+  $excursionesArray = json_decode($excursiones, true);
+  foreach ($excursionesArray as $key => $value) {
+    if ($value["id"]==$_GET["id"]){
+      $class_excursion= new Excursion($_GET["id"]);
+      $class_excursion->setNombre($value["nombre"]);
+      $class_excursion->setId($value["id"]);
+      $class_excursion->setValor($value["valor"]);
+      $class_excursion->setDescripcion($value["descripcion"]);
+      $class_excursion->setImagen($value["imagen"]);
+    }
+  }
+
+  //$_SESSION["class_usuario"]
+
  ?>
 
 <!DOCTYPE html>
@@ -23,12 +41,12 @@
   <section id=producto class="container-fluid p-3">
     <div class="row">
       <div class="col-sm-12 col-xl-7" id="excursion">
-        <img src="../images/excursiones/republica_ninos/01.jpg" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+        <img src=<?="cargaExcursion/imagenes/" . $class_excursion->getImagen() ?> class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
       </div>
       <div class="col-sm-12 col-xl-5">
-        <h2 class="display-5">Recorré la República de los Niños</h2>
-        <p class="lead">La República de los Niños es un parque educativo en Manuel Gonnet, Provincia de Buenos Aires. Es considerado el primer parque temático de América y reproduce un conglomerado urbano y rural en escala acorde a niños de 10 años, con todas las instituciones correspondientes al sistema democrático: parlamento, casa de gobierno, palacio de justicia, iglesia, puerto, teatro, aeropuerto, restaurantes, hoteles, etc. </p>
-        <span><a class="btn btn-primary" href="carro.php" role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span>
+        <h2 class="display-5"><?= $class_excursion->getNombre() ?></h2>
+        <p class="lead"><?= $class_excursion->getDescripcion() ?> </p>
+        <span><a class="btn btn-primary" href=<?= "carro.php?id=" . $class_excursion->getId() ?> role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span>
       </div>
     </div>
 

@@ -4,8 +4,9 @@ session_start();
 require_once 'controladores/helpers.php';
 require_once 'controladores/controladorValidacionLogin.php';
 require_once 'controladores/controladorUsuario.php';
+require_once 'clases/usuario.php';
 
-$errorLogin = "";
+$errorLogin=" ";
 
 if ($_POST) {
   $errorLogin= validarFormulario($_POST); //Validacion del registro
@@ -20,10 +21,16 @@ if ($_POST) {
           $_SESSION["nombreUsuario"]= $user["nombre"];
           $_SESSION["username"]= $user["username"];
           $_SESSION["password"]= $user["password"];
-          if(isset($_POST['recordarme']) && $_POST['recordarme'] == 'on') {
+          if(isset($_POST['recordame']) && $_POST['recordame'] == 'on') {
             setcookie('emailUsuario', $user['email'], time()+60*60*24);
             setcookie('passUsuario', $user['password'], time()+60*60*24);
           }
+          $_SESSION["class_usuario"]= new User($user["email"],$user["password"],$user["username"]);
+          $_SESSION["class_usuario"]->setNombre($user["nombre"]);
+          $_SESSION["class_usuario"]->setUsername($user["username"]);
+          $_SESSION["class_usuario"]->setEmail($user["email"]);
+          $_SESSION["class_usuario"]->setPass($user["password"]);
+
           header("Location: home.php");
         }
       }
@@ -66,7 +73,7 @@ if ($_POST) {
       </div>
 
       <div class="form-group form-check">
-        <input type="checkbox" name="recordarme" class="form-check-input" id="exampleCheck1">
+        <input type="checkbox" name="recordame" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Recordame</label>
       </div>
 
