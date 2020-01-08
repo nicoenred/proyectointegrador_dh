@@ -117,7 +117,7 @@
 
 <!-- /.container -->
   <section class="container-fluid" id="contact-form">
-    <?php  include_once "contact.php"?>
+    <?php  include_once "contact-page.php"?>
   </section>
 
 <!-- Footer -->

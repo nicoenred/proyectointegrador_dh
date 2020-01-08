@@ -1,12 +1,11 @@
 <?php
-
 session_start();
+
 require_once 'controladores/helpers.php';
 require_once 'controladores/controladorValidacionLogin.php';
 require_once 'controladores/controladorUsuario.php';
-require_once 'clases/usuario.php';
 
-$errorLogin=" ";
+$errorLogin = "";
 
 if ($_POST) {
   $errorLogin= validarFormulario($_POST); //Validacion del registro
@@ -21,16 +20,10 @@ if ($_POST) {
           $_SESSION["nombreUsuario"]= $user["nombre"];
           $_SESSION["username"]= $user["username"];
           $_SESSION["password"]= $user["password"];
-          if(isset($_POST['recordame']) && $_POST['recordame'] == 'on') {
+          if(isset($_POST['recordarme']) && $_POST['recordarme'] == 'on') {
             setcookie('emailUsuario', $user['email'], time()+60*60*24);
             setcookie('passUsuario', $user['password'], time()+60*60*24);
           }
-          $_SESSION["class_usuario"]= new User($user["email"],$user["password"],$user["username"]);
-          $_SESSION["class_usuario"]->setNombre($user["nombre"]);
-          $_SESSION["class_usuario"]->setUsername($user["username"]);
-          $_SESSION["class_usuario"]->setEmail($user["email"]);
-          $_SESSION["class_usuario"]->setPass($user["password"]);
-
           header("Location: home.php");
         }
       }
@@ -53,7 +46,7 @@ if ($_POST) {
 
 
 </head>
-<?php include_once  "header.php"?>
+<?php include_once "header.php"?>
 <body>
   <section class="container" id="form-login">
     <p class="h2 text-center text-uppercase"><strong>te damos la bienvenida</strong></p>
@@ -63,17 +56,17 @@ if ($_POST) {
       <div class="form-group">
         <label for="exampleInputEmail1">Ingresá tu dirección de correo electrónico</label>
         <input type="email" name="email" value="<?= persistirDato($errorLogin, 'email') ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small><?= isset($errorRegistro['email']) ? $errorRegistro['email'] : ""  ?></small>
+        <small><?= isset($errorLogin['email']) ? $errorLogin['email'] : ""  ?></small>
       </div>
 
       <div class="form-group">
         <label for="exampleInputPassword1">Ingresá la contraseña</label>
         <input type="password" name="password" value="" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        <small><?= isset($errorRegistro['password']) ? $errorRegistro['password'] : ""  ?></small>
+        <small><?= isset($errorLogin['password']) ? $errorLogin['password'] : ""  ?></small>
       </div>
 
       <div class="form-group form-check">
-        <input type="checkbox" name="recordame" class="form-check-input" id="exampleCheck1">
+        <input type="checkbox" name="recordarme" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Recordame</label>
       </div>
 

@@ -38,7 +38,7 @@
                 <a class="nav-link" href="about.php">Sobre Nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.php">Contacto</a>
+                <a class="nav-link" href="contact.php" >Contacto</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="user.php?id=<?= $_SESSION["nombreUsuario"] ?>">Mi Perfil</a>

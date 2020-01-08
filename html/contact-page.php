@@ -15,20 +15,29 @@
 </head>
 
 <body>
-  <?php include_once "header.php" ?>
+  <section class="container-fluid p-5">
+  <p class="h2 text-center text-uppercase"><strong>escribinos</strong></p>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Dirección de correo electrónico</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
 
-  <section class="container-fluid text-center p-3 m-0 h-50" id="home">
-    <span> <img src="../images/Logo/logo.png" alt="entre_diagonales"> <h1>entre <br> DIAGONALES </h1></span>
-  </section>
+      <div class="form-group">
+        <label for="exampleFormControlInput2">Asunto</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
+      </div>
 
-  <section>
-    <?php include_once "contact-page.php" ?>
-  </section>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea3">Tu mensaje</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
+      </div>
+    </form>
 
 
 
+    </section>
 
-  <?php include_once "footer.php" ?>
 
 
 

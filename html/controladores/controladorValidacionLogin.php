@@ -4,32 +4,6 @@ function validarFormulario($array) {
 
   $errores=[];
 
-  //Validacion del input "nombre"
-
-  if (isset($array["nombre"])) {
-
-    if (empty($array["nombre"])){ //preguntamos si nombre esta vacio
-      $errores['nombre'] = "El campo está vacío";
-    }
-    elseif (strlen($array["nombre"])<2) { //preguntamos longitud de nombre
-      $errores['nombre'] = "Tu nombre debe tener al menos 2 caracteres";
-    }
-
-  }
-
-  //Validacion del input "nombre de usuario"
-
-  if (isset($array["username"])) {
-
-    if (empty($array["username"])){ //preguntamos si nombre esta vacio
-      $errores['username'] = "El campo está vacío";
-    }
-    elseif (strlen($array["username"])<4) { //preguntamos longitud de nombre
-      $errores['username'] = "Tu nombre debe tener al menos 4 caracteres";
-    }
-
-  }
-
   //Validacion del input "email"
 
   if (isset($array["email"])) {
@@ -57,21 +31,7 @@ function validarFormulario($array) {
 
   }
 
-  //Validacion del input "repassword"
-
-  if (isset($array["repassword"])) {
-
-    if (empty($array["repassword"])){
-      $errores['repassword'] = "El campo está vacío"; //preguntamos si pass esta vacio
-    }
-
-    if ($array["repassword"] != $array["password"]) {
-      $errores['repassword'] = "Las contraseñas deben coincidir";
-    }
-  }
-
   return $errores;
-
 
 }
 
