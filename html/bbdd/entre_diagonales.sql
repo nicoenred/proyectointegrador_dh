@@ -1,0 +1,1 @@
+SELECT * FROM entre_diagonales.clientes;
