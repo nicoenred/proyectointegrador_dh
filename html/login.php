@@ -3,7 +3,9 @@ session_start();
 
 require_once 'controladores/helpers.php';
 require_once 'controladores/controladorValidacionLogin.php';
-require_once 'controladores/controladorUsuario.php';
+require_once "bbdd/bbdd.php";
+
+
 
 $errorLogin = "";
 
@@ -11,15 +13,25 @@ if ($_POST) {
   $errorLogin= validarFormulario($_POST); //Validacion del registro
 
   if (count($errorLogin) == 0) {
-    $bbddUsuarios= file_get_contents("usuarios.json");
-    $bbddUsuariosArray= json_decode($bbddUsuarios, true);
-    foreach ($bbddUsuariosArray as $user) {
-      if ($user["email"] == $_POST["email"]) {
+
+    $login=$bbdd->prepare("SELECT * FROM entre_diagonales.clientes WHERE email LIKE ?");
+
+    $email=$_POST["email"];
+    $pass=$_POST["password"];
+
+    $login->bindValue(1, $email);
+    $login->execute();
+
+    $resultados=$login->fetchAll(PDO::FETCH_ASSOC);
+
+
+    foreach ($resultados as $user) {
         if (password_verify($_POST["password"], $user["password"])) {
           $_SESSION["emailUsuario"] = $user["email"];
           $_SESSION["nombreUsuario"]= $user["nombre"];
           $_SESSION["username"]= $user["username"];
           $_SESSION["password"]= $user["password"];
+          $_SESSION["id"]= $user["idCliente"];
           if(isset($_POST['recordarme']) && $_POST['recordarme'] == 'on') {
             setcookie('emailUsuario', $user['email'], time()+60*60*24);
             setcookie('passUsuario', $user['password'], time()+60*60*24);
@@ -29,7 +41,7 @@ if ($_POST) {
       }
     }
   }
-}
+
 
 
  ?>

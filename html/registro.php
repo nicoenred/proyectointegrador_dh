@@ -1,23 +1,36 @@
 <?php
 
 session_start();
+require_once 'controladorValidacion.php';
 require_once 'controladores/helpers.php';
-require_once 'controladores/controladorValidacionRegistro.php';
-require_once 'controladores/controladorUsuario.php';
-
+require_once 'bbdd/bbdd.php';
 $errorRegistro="";
 
 if ($_POST) {
+
   $errorRegistro= validarFormulario($_POST); //Validacion del registro
-  if (count($errorRegistro)== 0) {
-    $usuarios = file_get_contents('usuarios.json');
-    $usuariosArray = json_decode($usuarios, true);
-    $usuario = armarArrayUsuario($_POST);
-    $usuariosArray[]=$usuario;
-    file_put_contents('usuarios.json',json_encode($usuariosArray));
-    header("Location: login.php");
+  $username= $_POST["username"];
+  $email= $_POST["email"];
+  $pass= password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $nombre= $_POST["nombre"];
+  $apellido= $_POST["apellido"];
+  $telefono= $_POST["telefono"];
+  $img="profiledefault.jpg";
+
+  if (count($errorRegistro)==0) {
+    $newUser = $bbdd->prepare("INSERT INTO entre_diagonales.clientes  VALUES (default, ?, ?, ?, ?, ?, ?, ?)");
+    $newUser->bindValue("1",$username);
+    $newUser->bindValue("2",$email);
+    $newUser->bindValue("3", $pass);
+    $newUser->bindValue("4",$apellido);
+    $newUser->bindValue("5",$nombre);
+    $newUser->bindValue("6",$telefono);
+    $newUser->bindValue("7",$img);
+    $newUser->execute();
+    header('Location: login.php');
   }
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -52,6 +65,20 @@ if ($_POST) {
           <label for="username">Ingresá tu nombre de usuario</label>
           <input type="text" id="username" name="username" value="" class="form-control" placeholder="Nombre de usuario">
           <small><?= isset($errorRegistro['username']) ? $errorRegistro['username'] : ""  ?></small>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col">
+          <label for="apellido">Ingresá tu apellido  completo</label>
+          <input type="text" id="apellido" name="apellido" value="" class="form-control" placeholder="Apellido">
+        </div>
+
+        <div class="col">
+          <label for="telefono">Ingresá tu número de teléfono</label>
+          <input type="text" id="telefono" name="telefono" value="" class="form-control" placeholder="Telefono">
         </div>
 
       </div>

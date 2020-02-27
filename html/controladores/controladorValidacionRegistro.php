@@ -2,9 +2,6 @@
 
 function validarFormulario($array) {
 
-  $errores=[];
-  $usuarios = file_get_contents('usuarios.json');
-  $usuariosArray = json_decode($usuarios, true);
 
   //Validacion del input "nombre"
 
@@ -51,14 +48,7 @@ function validarFormulario($array) {
       $errores['email'] = "Tenés que ingresar un mail válido"; //preguntamos si email esta vacio
     }
 
-    $usuarios = file_get_contents('usuarios.json');
-    $usuariosArray = json_decode($usuarios, true);
-
-    foreach ($usuariosArray as $value) {
-      if ($value["email"]==$_POST["email"]) {
-        $errores['email'] = "Esta dirección de email ya existe";
-      }
-    }
+s
 
   }
 

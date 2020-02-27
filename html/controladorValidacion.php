@@ -1,8 +1,16 @@
 <?php
 
-function validarFormulario($array) {
+include_once 'controladores/helpers.php';
 
+
+function validarFormulario($array) {
+  include 'bbdd/bbdd.php';
   $errores=[];
+  $consulta=$bbdd->prepare("SELECT * FROM entre_diagonales.clientes");
+  $consulta->execute();
+  $resultados=$consulta->fetchAll(PDO::FETCH_ASSOC);
+
+
 
   //Validacion del input "nombre"
 
@@ -27,6 +35,11 @@ function validarFormulario($array) {
     elseif (strlen($array["username"])<4) { //preguntamos longitud de nombre
       $errores['username'] = "Tu nombre debe tener al menos 4 caracteres";
     }
+    foreach ($resultados as $usuario) {
+      if ($usuario["username"]==$array["username"]) {
+        $errores['username']="Este username ya existe";
+      }
+    }
 
   }
 
@@ -40,6 +53,12 @@ function validarFormulario($array) {
 
     elseif (!filter_var($array["email"] , FILTER_VALIDATE_EMAIL)) { //preguntamos si NO es un mail válido a partir de filter_var per otambien con el ! al inicio
       $errores['email'] = "Tenés que ingresar un mail válido"; //preguntamos si email esta vacio
+    }
+
+    foreach ($resultados as $usuario) {
+      if ($usuario["email"]==$array["email"]) {
+        $errores['email']="Este email ya existe";
+      }
     }
 
   }

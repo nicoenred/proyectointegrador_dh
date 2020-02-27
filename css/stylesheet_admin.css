@@ -1,0 +1,12 @@
+.row {
+  padding: 20%;
+  flex-direction: column;
+}
+
+.col {
+  margin: 10px;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  width: 50%;
+}

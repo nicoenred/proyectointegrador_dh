@@ -2,6 +2,13 @@
 
 function validarFormulario($array) {
 
+  require_once "bbdd/bbdd.php";
+  global $bbdd;
+
+  $consulta=$bbdd->prepare("SELECT * FROM entre_diagonales.clientes");
+  $consulta->execute();
+  $resultados=$consulta->fetchAll(PDO::FETCH_ASSOC);
+
   $errores=[];
 
   //Validacion del input "email"
@@ -12,9 +19,12 @@ function validarFormulario($array) {
       $errores['email'] = "El campo está vacío"; //preguntamos si email esta vacio
     }
 
-    elseif (!filter_var($array["email"] , FILTER_VALIDATE_EMAIL)) { //preguntamos si NO es un mail válido a partir de filter_var per otambien con el ! al inicio
+    if (!filter_var($array["email"] , FILTER_VALIDATE_EMAIL)) { //preguntamos si NO es un mail válido a partir de filter_var per otambien con el ! al inicio
       $errores['email'] = "Tenés que ingresar un mail válido"; //preguntamos si email esta vacio
     }
+
+
+
 
   }
 

@@ -1,8 +1,40 @@
 <?php
-  session_start();
-  require_once 'controladores/helpers.php';
-  require_once 'controladores/controladorValidacionLogin.php';
-  require_once 'controladores/controladorUsuario.php';
+
+session_start();
+require_once 'controladores/helpers.php';
+require_once 'bbdd/bbdd.php';
+require_once 'controladores/controladorValidacionFiles.php';
+
+$errorCarga="";
+
+if ($_FILES) {
+  $errorCarga= validarImagen($_FILES);
+  if (count($errorCarga)==0) {
+    $imagen=$_FILES["imagenperfil"]["tmp_name"];
+    $ext = pathinfo($_FILES["imagenperfil"]["name"] , PATHINFO_EXTENSION);
+    $nombre= $_SESSION["username"] ."_". $_SESSION["id"] . "." . "$ext";
+    $ruta= "../images/fotosperfil/" . $nombre;
+
+    move_uploaded_file ($imagen, $ruta);
+
+    $consulta=$bbdd->prepare("UPDATE entre_diagonales.clientes SET imgprofile = :nombre WHERE (idCliente = :id)");
+    $consulta->bindValue(":nombre",$nombre);
+    $consulta->bindValue(":id", $_SESSION["id"]);
+    $consulta->execute();
+  }
+}
+
+function cargarImagen($bbdd){
+  $cargar=$bbdd->prepare("SELECT imgprofile FROM entre_diagonales.clientes WHERE (idCliente=:id)");
+  $cargar->bindValue(":id", $_SESSION["id"]);
+  $cargar->execute();
+  $resultados=$cargar->fetch(PDO::FETCH_ASSOC);
+  foreach ($resultados as $value) {
+      $cargar="$value";
+    }
+    return $cargar;
+  }
+$nombre_img=cargarImagen($bbdd);
 
 ?>
 
@@ -20,130 +52,83 @@
 <body>
   <?php include_once "header.php" ?>
   <div class="container emp-profile">
-    <form action='' method='post' enctype="multipart/form-data">
-      <div class="row">
-        <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4">
+        <form action='' method='post' enctype="multipart/form-data">
           <div class="profile-img">
-
-            <?php
-
-            if ($_FILES){
-
-              if ($_FILES["imagenperfil"]["error"]!=0){
-               echo "Hubo un error al cargar la imagen de perfil <br>";
-            }
-              else {
-                $ext = pathinfo($_FILES["imagenperfil"]["name"] , PATHINFO_EXTENSION);
-                    if ($ext != "jpg" && $ext != "jpeg" && $ext != "png"){
-                      echo "La imagen debe ser jpg, jpeg o png <br>";
-                    }
-
-                    else {
-                      move_uploaded_file ($_FILES["imagenperfil"]["tmp_name"],"../images/fotosperfil/" . $_SESSION["emailUsuario"] . "." . "$ext");
-
-                      $usuarios = file_get_contents('usuarios.json');
-                      $usuariosArray = json_decode($usuarios, true);
-
-                        foreach ($usuariosArray as $key => $value) {
-                          if ($value["email"]==$_SESSION["emailUsuario"]) {
-                            $usuariosArray[$key]["imagen"]=$_SESSION["emailUsuario"] . "." . $ext;
-                          }
-                        }
-                        file_put_contents('usuarios.json',json_encode($usuariosArray));
-
-                      }
-
-
-                    }
-              }
-
-
-             ?>
-               <img class="img-fluid" src="../images/fotosperfil/<?php
-
-                         $usuarios = file_get_contents('usuarios.json');
-                         $usuariosArray = json_decode($usuarios, true);
-                           foreach ($usuariosArray as $key => $value) {
-                             if ($value["email"]==$_SESSION["emailUsuario"]){
-                             if (strlen(($value["imagen"]))!=0) {
-                               echo $usuariosArray[$key]["imagen"];
-                             }
-                            else {echo "profiledefault.jpg";}}}?>" alt=""/>
-
-                <br>
-                <br>
-                <br>
-                <div class="file btn btn-lg btn-primary">
-                    Cambiar Foto
-                <input type="file" name="imagenperfil" value=""/>
-                </div>
-                <div class="btn-lg btn-primary">
-                  <input class="btn btn-primary" type="submit" value="Subir foto">
-                </div>
+             <img class="img-fluid" src="../images/fotosperfil/<?=$nombre_img?>" alt=""/>
+              <div class="file btn btn-lg btn-primary">
+                  Cambiar Foto
+              <input type="file" name="imagenperfil" value=""/>
+              </div>
+              <div class="btn-lg btn-primary">
+                <input class="btn btn-primary" type="submit" value="Subir foto">
+              </div>
                 <!--
               <div class='btn btn-lg btn-primary container'>
                 <input type='submit' name='Submit' value='Subir foto'/>
               </div>
             -->
           </div>
+        </form>
+      </div>
+      <div class="col-md-8">
+        <div class="profile-head">
+          <h4>
+            <span> ¡Bienvenido <?php  echo $_SESSION["nombreUsuario"]; ?>!  </span>
+          </h4>
+          <a class="btn btn-outline-primary editarinfo" href="editUser.php" role="button">Editar información</a>
         </div>
-        <div class="col-md-8">
-          <div class="profile-head">
-            <h4>
-              <span> ¡Bienvenido <?php echo $_SESSION["nombreUsuario"]; ?>!  </span>
-            </h4>
-            <a class="btn btn-outline-primary editarinfo" href="editUser.php" role="button">Editar información</a>
-          </div>
-            <div class="col-md-12 p-0">
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#user-home" role="tab" aria-controls="home" aria-selected="true">Información</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Historial de compras</a>
-                  </li>
-              </ul>
-              <div class="tab-content profile-tab" id="myTabContent">
-                <div class="tab-pane fade show active" id="user-home" role="tabpanel" aria-labelledby="home-tab">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>Id</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p><?php echo $_SESSION["username"]; ?></p>
-                    </div>
+        <div class="row">
+          <div class="col-md-10">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#user-home" role="tab" aria-controls="home" aria-selected="true">Información</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Historial de compras</a>
+              </li>
+            </ul>
+            <div class="tab-content profile-tab" id="myTabContent">
+              <div class="tab-pane fade show active" id="user-home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Id</label>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>Nombre</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p><?php echo $_SESSION["nombreUsuario"]; ?></p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>Email</label>
-                    </div>
-                    <div class="col-md-6">
-                      <p><?php echo $_SESSION["emailUsuario"]; ?></p>
-                    </div>
+                  <div class="col-md-6">
+                    <p><?php echo $_SESSION["username"]; ?></p>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="card h-100">
-                        <a href="detalleproducto.html"><img class="card-img-top" src="..\images\municipalidad.jpg" alt=""></a>
-                        <div class="card-body">
-                          <h4 class="card-title">
-                            <a href="detalleproducto.html">Item Three</a>
-                          </h4>
-                          <h5>$24.99</h5>
-                        </div>
-                        <div class="card-footer">
-                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Nombre</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p><?php echo $_SESSION["nombreUsuario"]; ?></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Email</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p><?php echo $_SESSION["emailUsuario"]; ?></p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                      <a href="detalleproducto.html"><img class="card-img-top" src="..\images\municipalidad.jpg" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="detalleproducto.html">Item Three</a>
+                        </h4>
+                        <h5>$24.99</h5>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                       </div>
                     </div>
                   </div>
@@ -152,9 +137,9 @@
             </div>
           </div>
         </div>
-    </form>
+      </div>
+    </div>
   </div>
-
   <?php include_once "footer.php" ?>
 
   <!-- Bootstrap core JavaScript -->

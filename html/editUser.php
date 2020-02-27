@@ -1,38 +1,35 @@
 <?php
-
 session_start();
+require_once 'controladorValidacion.php';
 require_once 'controladores/helpers.php';
-require_once 'controladores/controladorValidacionLogin.php';
-require_once 'controladores/controladorUsuario.php';
-
+require_once 'bbdd/bbdd.php';
 $errorRegistro="";
 
 if ($_POST) {
-  $errorRegistro= validarFormulario($_POST); //Validacion del registro
+  $errorRegistro= validarFormulario($_POST);
+  $username=$_POST["username"];
+  $email =$_POST["email"];
+  $apellido =$_POST["apellido"];
+  $nombre =$_POST["nombre"];
+  $telefono =$_POST["telefono"];
+  $id =$_SESSION["id"];
+  $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
   if (count($errorRegistro)== 0) {
-    $usuarios = file_get_contents('usuarios.json');
-    $usuariosArray = json_decode($usuarios, true);
+    $editUser=$bbdd->prepare("UPDATE clientes SET username = :username, email = :email , password = :pass , apellido = :apellido , nombre = :nombre , telefono = :telefono WHERE (idCliente = :id)");
+    $editUser->bindValue(":username", $username);
+    $editUser->bindValue(":email", $email);
+    $editUser->bindValue(":pass", $pass);
+    $editUser->bindValue(":apellido", $apellido);
+    $editUser->bindValue(":nombre", $nombre);
+    $editUser->bindValue(":telefono", $telefono);
+    $editUser->bindValue(":id", $id);
+    $editUser->execute();
 
-    foreach ($usuariosArray as $key => $value) {
-      if ($value["email"]==$_SESSION["emailUsuario"]) {
-        $usuariosArray[$key]["email"]=$_POST["email"];
-        $usuariosArray[$key]["nombre"]=$_POST["nombre"];
-        $usuariosArray[$key]["username"]=$_POST["username"];
-        $usuariosArray[$key]["password"]=password_hash($_POST['password'], PASSWORD_DEFAULT);
-        session_destroy();
-        session_start();
-        $_SESSION["emailUsuario"] = $_POST["email"];
-        $_SESSION["nombreUsuario"]= $_POST["nombre"];
-        $_SESSION["username"]= $_POST["username"];
-        $_SESSION["password"]= $usuariosArray[$key]["password"];
-      }
-    }
-    file_put_contents('usuarios.json',json_encode($usuariosArray));
-
-
-    header("Location: user.php");
+    session_destroy();
+    header('Location: login.php');
   }
 }
+
 
 
 ?>
@@ -53,7 +50,7 @@ if ($_POST) {
   <?php include_once "header.php" ?>
 
   <section class="container" id="form-registro">
-    <p class="h2 text-center text-uppercase"><strong>editá tus datos</strong></p>
+    <p class="h2 text-center text-uppercase"><strong>Editá tus datos</strong></p>
     <form action="" method="post">
 
       <div class="row">
@@ -66,8 +63,22 @@ if ($_POST) {
 
         <div class="col">
           <label for="username">Ingresá tu nombre de usuario</label>
-          <input type="text" id="username" name="username" value="<?= persistirDato($errorRegistro, 'username') ?>" class="form-control" placeholder="Nombre de usuario">
+          <input type="text" id="username" name="username" value="" class="form-control" placeholder="Nombre de usuario">
           <small><?= isset($errorRegistro['username']) ? $errorRegistro['username'] : ""  ?></small>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col">
+          <label for="apellido">Ingresá tu apellido  completo</label>
+          <input type="text" id="apellido" name="apellido" value="" class="form-control" placeholder="Apellido">
+        </div>
+
+        <div class="col">
+          <label for="telefono">Ingresá tu número de teléfono</label>
+          <input type="text" id="telefono" name="telefono" value="" class="form-control" placeholder="Telefono">
         </div>
 
       </div>
@@ -101,8 +112,6 @@ if ($_POST) {
     </form>
   </section>
 
-
-    <?php include_once "footer.php" ?>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
