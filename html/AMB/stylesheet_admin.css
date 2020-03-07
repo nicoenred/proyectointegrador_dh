@@ -1,0 +1,16 @@
+.row {
+  padding: 10%;
+  flex-direction: column;
+}
+
+.col {
+  margin: 10px;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  width: 50%;
+}
+
+a {
+  color: white;
+}
