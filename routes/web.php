@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +14,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/index', function(){
+  return view('index');
+});
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/admin/{id}', 'UserController@admin')->name('admin');
+
+/* CRUD */
+
+Route::get('/excursiones','ExcursionController@directory')->name('listarExcursiones');
+Route::get('/excursiones/{id}','ExcursionController@show');
+/*Route::get('/actores/buscar' , 'ActorsController@search'); BUSQUEDA*/
+Route::get('/excursion/agregar' , 'ExcursionController@crear')->name('cargarExcursion');
+Route::post('/excursion/crear','ExcursionController@almacenar');

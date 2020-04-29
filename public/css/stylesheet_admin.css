@@ -1,6 +1,7 @@
 .row {
   padding: 20%;
   flex-direction: column;
+  display: initial;  
 }
 
 .col {

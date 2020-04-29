@@ -14,7 +14,6 @@
 </head>
 <body>
 
-  <?php include_once "header.php" ?>
 
   <section class="container-fluid text-center p-3 m-0 oscurecer" id="home">
     <div class="row">
@@ -33,21 +32,7 @@
     </section>
 
 
-  <div class="container-fluid" id="productos_home">
-    <p class="h2 text-center text-uppercase"><strong>excursiones populares</strong></p>
-    <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <a href="detalleproducto.php"><img class="card-img-top" src="../images/excursiones/republica_ninos/01.jpg" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="detalleproducto.php">Repúbica de los Niños</a>
-            </h4>
-            <h5>$100.00</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-          </div>
-        </div>
-      </div>
+
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
