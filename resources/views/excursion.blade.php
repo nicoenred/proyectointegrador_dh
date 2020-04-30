@@ -20,12 +20,12 @@
 
     <div class="row">
       <div class="col-sm-12 col-xl-7" id="excursion">
-        <img src="/imagenes/excursiones/{{$excursion->imagen_principal}}" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+        <img src="/imagenes/excursiones/{{$excursion['imagen']}}" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
       </div>
       <div class="col-sm-12 col-xl-5">
-        <h2 class="display-5">{{$excursion->titulo}}</h2>
-        <p class="lead">{{$excursion->descripcion}}</p>
-        <span><a class="btn btn-primary" href="carro.php" role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span>
+        <h2 class="display-5">{{$excursion['name']}}</h2>
+        <p class="lead">{{$excursion['descripcion']}}</p>
+        <span><a class="btn btn-primary" href="#" role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span>
       </div>
     </div>
 

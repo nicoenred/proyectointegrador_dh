@@ -27,14 +27,14 @@
         @foreach ($excursion as $producto)
         <div class="col-md-6 ">
           <div class="card h-100">
-            <a href=""><img class="card-img-top" src="/imagenes/excursiones/{{$producto->imagen_principal}}" alt=""></a>
+            <a href=""><img class="card-img-top" src="/imagenes/excursiones/{{$producto->imagen}}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="excursiones/{{$producto->name}}">{{$producto->name}}</a>
+                <a href="/excursiones/{{$producto->idExcursion}}">{{$producto->name}}</a>
               </h4>
-              <h5>{{$producto->valor}}</h5>
+              <h5>$ {{$producto->valor}}</h5>
               <p class="card-text">{{$producto->sub}}</p>
-              <a class="btn btn-danger" href="excursiones/{{$producto->idExcursion}}" role="button">Comprar</a>
+              <a class="btn btn-danger" href="/excursiones/{{$producto->idExcursion}}" role="button">Comprar</a>
             </div>
           </div>
         </div>

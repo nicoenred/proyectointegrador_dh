@@ -14,4 +14,7 @@ class Excursion extends Model
 
   protected $guarded = [];
 
+  public function categoria() {
+        return $this->belongsTo(Categoria::class, 'categoria_id');
+      }
 }
