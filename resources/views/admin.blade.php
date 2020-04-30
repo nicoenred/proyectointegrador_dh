@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col text-center">
           <img alt="entre_diagonales" src="/imagenes/marca/logo.png" />
-          <h2 class="mt-3">Hola {{$admin->nombre}}</h2>
+          <h2 class="mt-3">Hola {{$admin->name}}</h2>
         </div>
         <div class="col text-center">
           <a href="{{Route('listarExcursiones')}}"><button type="button" class="btn btn-primary btn-lg">Ver excursiones</button></a>

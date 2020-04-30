@@ -24,7 +24,7 @@ Route::get('/index', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'HomeController@profile')->name('profile');
-Route::get('/admin/{id}', 'UserController@admin')->name('admin');
+Route::get('/admin/{id}', 'UserController@admin')->middleware('roleMiddleware')->name('admin');
 
 /* CRUD */
 

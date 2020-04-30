@@ -10,10 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $primaryKey = 'idCliente';
+    protected $primaryKey = 'idUser';
 
     protected $fillable = [
-        'username', 'email', 'password', 'nombre', 'apellido', 'telefono'
+        'username', 'email', 'password', 'name', 'surname', 'telephone'
     ];
 
     protected $hidden = [
@@ -24,12 +24,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getNombreCompleto(){
-      return $this->nombre." ".apellido;
-    }
 
-    public function admin(){
-      $role=$this->role;
-      return $role;
+    public function hasRole(){
+      $rol=$this->rol;
+      return $rol;
     }
 }

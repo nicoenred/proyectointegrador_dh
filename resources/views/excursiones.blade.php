@@ -30,11 +30,11 @@
             <a href=""><img class="card-img-top" src="/imagenes/excursiones/{{$producto->imagen_principal}}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="excursiones/{{$producto->idProducto}}">{{$producto->titulo}}</a>
+                <a href="excursiones/{{$producto->name}}">{{$producto->name}}</a>
               </h4>
-              <h5>{{$producto->precio}}</h5>
-              <p class="card-text">{{$producto->subtitulo}}</p>
-              <a class="btn btn-danger" href="excursiones/{{$producto->idProducto}}" role="button">Comprar</a>
+              <h5>{{$producto->valor}}</h5>
+              <p class="card-text">{{$producto->sub}}</p>
+              <a class="btn btn-danger" href="excursiones/{{$producto->idExcursion}}" role="button">Comprar</a>
             </div>
           </div>
         </div>

@@ -83,7 +83,7 @@
                   <a class="dropdown-item" href="{{ route('profile') }}">
                     {{ __('Mi Perfil') }}
                   </a>
-                  <a class="dropdown-item" href="/admin/{{Auth::user()->idCliente}}">
+                  <a class="dropdown-item" href="/admin/{{Auth::user()->idUser}}">
                     {{ __('Configuración') }}
                   </a>
                 </div>

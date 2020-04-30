@@ -46,7 +46,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Nombre de Excursión</span>
           </div>
-          <input name="nombre" value="{{old('nombre')}}" type="text" class="form-control" placeholder="Nombre de excursión" aria-label="Nombre de excursión" aria-describedby="basic-addon1">
+          <input name="name" value="{{old('nombre')}}" type="text" class="form-control" placeholder="Nombre de excursión" aria-label="Nombre de excursión" aria-describedby="basic-addon1">
         </div>
       </div>
 
@@ -55,7 +55,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Subtitulo</span>
           </div>
-          <input name="subtitulo" value="{{old('subtitulo')}}" type="text" class="form-control" placeholder="Descripción breve" aria-label="Descripción breve" aria-describedby="basic-addon1">
+          <input name="sub" value="{{old('subtitulo')}}" type="text" class="form-control" placeholder="Descripción breve" aria-label="Descripción breve" aria-describedby="basic-addon1">
         </div>
       </div>
 
@@ -64,7 +64,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Precio</span>
           </div>
-          <input name="precio" value="{{old('precio')}}" type="text" class="form-control" placeholder="Precio" aria-label="Precio" aria-describedby="basic-addon1">
+          <input name="valor" value="{{old('precio')}}" type="text" class="form-control" placeholder="Precio" aria-label="Precio" aria-describedby="basic-addon1">
         </div>
       </div>
 
@@ -84,10 +84,9 @@
           </div>
           <select name="categoria" class="custom-select" id="inputGroupSelect01">
             <option selected>Seleccionar...</option>
-            <option value="casco_urbano">Carco Urbano</option>
-            <option value="zona_norte">Zona Norte</option>
-            <option value="zona_oeste">Zona Oeste</option>
-            <option value="rio">Río de La Plata</option>
+            @foreach ($categorias as $categoria)
+              <option value="{{$categoria->idCategoria}}">{{$categoria->name}}</option>
+            @endforeach
           </select>
         </div>
       </div>

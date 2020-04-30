@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Excursion;
+use App\Categoria;
 
 class ExcursionController extends Controller
 {
     public function directory(){
-      $excursion=Excursion::orderby('precio','desc')->paginate(4);
+      $excursion=Excursion::orderby('valor','desc')->paginate(4);
       return view('excursiones', compact('excursion'));
     }
 
@@ -19,16 +20,17 @@ class ExcursionController extends Controller
 
     public function crear(){
       $excursion=Excursion::all();
-      return view('excursionadd',compact('excursion'));
+      $categorias=Categoria::all();
+      return view('excursionadd',compact('excursion', 'categorias'));
     }
 
     public function almacenar(Request $form){
       $rule=[
-        'nombre'=>'string | min:2 | required ',
-        'subtitulo'=>'string | min:140',
-        'precio'=>'numeric | nullable',
-        'descripcion'=>'string | min:140',
-        'categoria'=>'nullable'
+        'name'=>'string | min:2 | required ',
+        'sub'=>'string',
+        'valor'=>'numeric | nullable',
+        'descripcion'=>'string',
+        'categoria_id'=>'nullable'
       ];
 
       $messajes=[
@@ -40,16 +42,16 @@ class ExcursionController extends Controller
       $this->validate($form, $rule, $messajes);
 
       $nuevaExcursion=new Excursion();
-      $nuevaExcursion->titulo=$form['nombre'];
-      $nuevaExcursion->subtitulo=$form['subtitulo'];
-      $nuevaExcursion->precio=$form['precio'];
+      $nuevaExcursion->name=$form['name'];
+      $nuevaExcursion->sub=$form['sub'];
       $nuevaExcursion->descripcion=$form['descripcion'];
-      $nuevaExcursion->tag=$form['categoria'];
-      $nuevaExcursion->imagen_principal=null;
+      $nuevaExcursion->valor=$form['valor'];
+      $nuevaExcursion->imagen="null";
+      $nuevaExcursion->categoria_id=$form['categoria'];
       $nuevaExcursion->save();
       return redirect('excursiones');
     }
 
-    
+
 
 }

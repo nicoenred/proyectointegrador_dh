@@ -4,14 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Excursion extends Model
+class Categoria extends Model
 {
-  protected $table = 'excursion';
+  protected $table = 'categoria';
 
   public $timestamps = false;
 
-  protected $primaryKey = 'idExcursion';
+  protected $primaryKey = 'idCategoria';
 
   protected $guarded = [];
-
 }
