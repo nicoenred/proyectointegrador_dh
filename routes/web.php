@@ -26,6 +26,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'HomeController@profile')->name('profile');
 Route::get('/admin/{id}', 'UserController@admin')->middleware('roleMiddleware')->name('admin');
 
+Route::get('/contacto', 'ContactController@index')->name('contact');
+Route::get('/about', function(){
+  return view('about');
+});
+Route::get('/faq', function(){
+  return view('faq');
+});
+
 /* CRUD */
 
 Route::get('/excursiones','ExcursionController@directory')->name('listarExcursiones');

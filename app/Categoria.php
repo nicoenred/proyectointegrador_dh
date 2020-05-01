@@ -18,4 +18,3 @@ class Categoria extends Model
        return $this->hasMany('App\Excursion', 'categoria_id');
    }
 }
-}

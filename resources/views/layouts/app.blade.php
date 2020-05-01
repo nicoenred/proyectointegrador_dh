@@ -26,7 +26,7 @@
   <header id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="{{ url('/index') }}">
+        <a class="navbar-brand" href="{{ url('/home') }}">
           <img src="/imagenes/marca/logo.png" alt="entre diagonales" width="30" height="30" class="d-inline-block align-top">
           {{ 'Entre Diagonales' }}
         </a>
@@ -50,10 +50,10 @@
               <a class="nav-link" href="">Excursiones</a>
             </li>
             <li  class="nav-item">
-              <a class="nav-link" href="">Sobre Nosotros</a>
+              <a class="nav-link" href="/about">Sobre Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=""> Contacto </a>
+              <a class="nav-link" href="{{ Route('contact') }}"> Contacto </a>
             </li>
             @guest
               <li class="nav-item">
@@ -115,15 +115,66 @@
     </div>
     </nav>
   </header>
-
+  @yield('body')
   @yield('content')
 
 
   @yield('portada')
 
-
-
-
-
 </body>
+
+  <footer class="footerstyle">
+
+    <div class="container-fluid">
+      <div class="row">
+
+
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <div class="m-0"><p class="h4 text-center text-uppercase m-3"><strong>MAPA DEL SITIO</strong></p></div>
+          <div class="navfoot">
+              <ul>
+                  <li><a href="/home" title="Página principal de entre Diagonales">Home</a></li>
+                  <li><a href="/about" title="Conocenos">Sobre Nosotros</a></li>
+                  <li><a href="/listaproductos.php" title="entre Diagonales - Nuestras excursiones">Excursiones</a></li>
+                  <li><a href="/faq" title="¿Preguntas?">Preguntas frecuentes</a></li>
+                  <li><a href="/contacto" title="Contactanos">Contacto</a></li>
+                  <li><a href="/register" title="Registrate y enterate de las últimas novedades y promociones">Registrarse</a></li>
+                  <li><a href="/login" title="Logueate">Login</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <div class="m-0 "><p class="h4 text-center text-uppercase m-3"><strong>SOCIAL MEDIA</strong></p></div>
+          <div class="navfoot">
+              <ul>
+                  <li><a href="#" title="Facebook de entre Diagonales">Facebook</a></li>
+                  <li><a href="#" title="Instagram de entre Diagonales">Instagram</a></li>
+                  <li><a href="#" title="Twitter de entre Diagonales">Twitter</a></li>
+              </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+           <div class="m-0"><p class="h4 text-center text-uppercase m-3"><strong> POLÍTICA DE USO</strong></p></div>
+            <div class="navfoot">
+                <ul>
+                    <li><a href="#" title="Condiciones">Condiciones generales</a></li>
+                    <li><a href="#" title="Aviso legal">Aviso legal</a></li>
+                    <li><a href="#" title="Política de privacidad de entre Diagonales">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <p class="m-0 text-center">Copyright &copy; ENTRE DIAGONALES 2020 </p>
+    </div>
+
+    <!-- /.container -->
+  </footer>
+
+
 </html>
