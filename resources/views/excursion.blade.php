@@ -16,18 +16,28 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
+
 <body>
 
     <div class="row">
       <div class="col-sm-12 col-xl-7" id="excursion">
-        <img src="/imagenes/excursiones/{{$excursion['imagen']}}" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
+        <img src="/storage/excursiones/{{$excursion->imagen}}" class="img-fluid h-auto d-inline-block rounded" alt="Responsive image">
       </div>
       <div class="col-sm-12 col-xl-5">
         <h2 class="display-5">{{$excursion['name']}}</h2>
         <p class="lead">{{$excursion['descripcion']}}</p>
-        <span><a class="btn btn-primary" href="#" role="button"><ion-icon name="cart"></ion-icon> Agregar al Carrito</a></span>
+        <span>
+          <a class="btn btn-primary" href='/excursion/{{$excursion->idExcursion}}/editar' role="button"><ion-icon name="cart"></ion-icon> Editar </a>
+        </span>
+          <form class="" action="/excursion/{{$excursion->idExcursion}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" class="btn btn-danger" value="Eliminar">
+          </form>
       </div>
     </div>
+
+
 
 <body>
 </html>

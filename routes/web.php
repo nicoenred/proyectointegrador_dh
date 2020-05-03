@@ -36,8 +36,11 @@ Route::get('/faq', function(){
 
 /* CRUD */
 
-Route::get('/excursiones','ExcursionController@directory')->name('listarExcursiones');
+Route::get('/excursiones','ExcursionController@directory')->middleware('roleMiddleware')->name('listarExcursiones');
 Route::get('/excursiones/{id}','ExcursionController@show');
 /*Route::get('/actores/buscar' , 'ActorsController@search'); BUSQUEDA*/
 Route::get('/excursion/agregar' , 'ExcursionController@crear')->name('cargarExcursion');
 Route::post('/excursion/crear','ExcursionController@almacenar');
+Route::get('/excursion/{id}/editar' , 'ExcursionController@edit');
+Route::put('/excursion/{id}' , 'ExcursionController@update');
+Route::delete('/excursion/{id}' , 'ExcursionController@destroy');

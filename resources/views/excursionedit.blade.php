@@ -28,7 +28,9 @@
   <div class="row">
 
 
-    <form enctype="multipart/form-data" method="post" action="/excursion/crear">
+    <form enctype="multipart/form-data" method="post" action="/excursion/{{$excursion->idExcursion}}">
+      <input type="hidden" name="_method" value="PUT">
+      {{ csrf_field() }}
 
       @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -46,7 +48,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Nombre de Excursión</span>
           </div>
-          <input name="name" value="{{old('nombre')}}" type="text" class="form-control" placeholder="Nombre de excursión" aria-label="Nombre de excursión" aria-describedby="basic-addon1">
+          <input name="name" value="{{$excursion->name}}" type="text" class="form-control" placeholder="Nombre de excursión" aria-label="Nombre de excursión" aria-describedby="basic-addon1">
         </div>
       </div>
 
@@ -55,7 +57,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Subtitulo</span>
           </div>
-          <input name="sub" value="{{old('subtitulo')}}" type="text" class="form-control" placeholder="Descripción breve" aria-label="Descripción breve" aria-describedby="basic-addon1">
+          <input name="sub" value="{{$excursion->sub}}" type="text" class="form-control" placeholder="Descripción breve" aria-label="Descripción breve" aria-describedby="basic-addon1">
         </div>
       </div>
 
@@ -69,7 +71,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Precio</span>
           </div>
-          <input name="valor" value="{{old('precio')}}" type="text" class="form-control" placeholder="Precio" aria-label="Precio" aria-describedby="basic-addon1">
+          <input name="valor" value="{{$excursion->valor}}" type="text" class="form-control" placeholder="Precio" aria-label="Precio" aria-describedby="basic-addon1">
         </div>
       </div>
 
@@ -78,7 +80,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Descripción</span>
           </div>
-          <textarea name="descripcion" value="{{old('descripcion')}}" type="text" class="form-control" placeholder="Información de la excursión" aria-label="With textarea"></textarea>
+          <textarea name="descripcion" value="{{$excursion->descripcion}}" type="text" class="form-control" placeholder="Información de la excursión" aria-label="With textarea"></textarea>
         </div>
       </div>
 
@@ -88,7 +90,7 @@
             <label class="input-group-text" for="inputGroupSelect01">Categoría</label>
           </div>
           <select name="categoria" class="custom-select" id="inputGroupSelect01">
-            <option selected>Seleccionar...</option>
+            <option value="{{$excursion->categoria->idCategoria}}" selected>{{$excursion->categoria->name}}</option>
             @foreach ($categorias as $categoria)
               <option value="{{$categoria->idCategoria}}">{{$categoria->name}}</option>
             @endforeach

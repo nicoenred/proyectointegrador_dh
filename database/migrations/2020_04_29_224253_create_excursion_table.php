@@ -15,12 +15,12 @@ class CreateExcursionTable extends Migration
     {
         Schema::create('excursion', function (Blueprint $table) {
             $table->bigIncrements('idExcursion');
-            $table->string('name');
+            $table->string('name', 100);
             $table->text('sub');
             $table->text('descripcion');
             $table->unsignedBigInteger('valor');
             $table->string('imagen');
-            $table->unsignedBigInteger('categoria_id')->default(1);
+            $table->unsignedBigInteger('categoria_id')->nullable();
             $table->timestamps();
 
             $table->foreign('categoria_id')->references('idCategoria')->on('categoria');
