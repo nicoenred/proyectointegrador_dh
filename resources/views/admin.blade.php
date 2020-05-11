@@ -21,7 +21,9 @@
           <a href="{{Route('cargarExcursion')}}"><button type="button" class="btn btn-primary btn-lg">Cargar excursión</button></a>
         </div>
         <div class="col text-center">
-          <button type="button" class="btn btn-primary btn-lg">Ver perfil</button>
+          <a href="/miPerfil/{{Auth::user()->idUser}}">
+            <button type="button" class="btn btn-primary btn-lg" >Ver perfil</button>
+          </a>
         </div>
         <div class="col text-center">
           <a class="btn btn-dark btn-lg" href="{{ route('logout') }}"

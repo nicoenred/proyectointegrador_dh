@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Excursion;
 
 class HomeController extends Controller
 {
@@ -23,12 +24,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        return view('home');
+      $excursion=Excursion::orderby('valor','desc')->paginate(6);
+      return view('home', compact('excursion'));
     }
 
-    public function profile(){
-      return view('miPerfil');
-    }
 
     public function admin(){
       return view('admin');

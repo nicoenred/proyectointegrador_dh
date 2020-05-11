@@ -4,7 +4,7 @@
 faq
 @endsection
 
-@section('body')
+@section('content')
 <section class="container-fluid text-center p-3 m-0 oscurecer" id="home">
   <div class="row">
     <div class="col-12">

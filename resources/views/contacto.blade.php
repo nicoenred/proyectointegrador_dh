@@ -4,7 +4,7 @@
 contacto
 @endsection
 
-@section('body')
+@section('content')
   <section class="container-fluid p-5">
   <p class="h2 text-center text-uppercase"><strong>escribinos</strong></p>
     <form>

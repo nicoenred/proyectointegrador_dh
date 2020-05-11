@@ -70,11 +70,24 @@ h1,h2,h3,h4,h5 {
 #productos_home {
   background-color:#f8f8f8;
   border-radius: 18px;
+  justify-content: left;
+  width: 100%;
+  margin: 0;
+
+}
+
+#producto_home{
+  margin-top:5px;
+  margin-bottom:5px
 }
 
 #productos_home p {
-  padding-top: 3vh;
   color: #6f6f6f;
+}
+
+.paginacion{
+  display: flex;
+  justify-content: center;
 }
 
 #navbarResponsive ul li{
@@ -118,7 +131,6 @@ h1,h2,h3,h4,h5 {
     width: 100%;
   background-size: cover;
 }
-
 
 
 #excursion .transparent {
@@ -225,36 +237,21 @@ h1,h2,h3,h4,h5 {
 
 /* ACA EMPIEZA USER */
 
-.emp-profile{
+.profile{
     padding: 3%;
     margin-top: 3%;
     margin-bottom: 3%;
     border-radius: 0.5rem;
     background: #fff;
 }
-.profile-img{
-    text-align: center;
+
+
+.file {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-.profile-img img{
-    width: 100%;
-    height: 100%;
-}
-.profile-img .file {
-    position: relative;
-    overflow: hidden;
-    margin-top: -20%;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    font-size: 15px;
-    background: #212529b8;
-}
-.profile-img .file input {
-    position: absolute;
-    opacity: 0;
-    right: 0;
-    top: 0;
-}
+
 .profile-head h5{
     color: #333;
 }

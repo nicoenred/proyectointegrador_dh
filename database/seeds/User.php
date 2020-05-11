@@ -18,7 +18,20 @@ class User extends Seeder
           "username" => "admin",
           "telephone" => 221221221,
           "rol" => "admin",
+          "imagenPerfil"=>"default.png",
           "email" => "admin@entrediagonales.com",
+          "password" => "entrediagonales2020"
+        ]
+      );
+      DB::table("users")->insert(
+        [
+          "name" => "Usuario",
+          "surname" => "Comprador",
+          "username" => "user",
+          "telephone" => 221221221,
+          "rol" => "null",
+          "imagenPerfil"=>"default.png",
+          "email" => "user@entrediagonales.com",
           "password" => "entrediagonales2020"
         ]
       );

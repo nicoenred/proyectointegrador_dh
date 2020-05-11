@@ -1,38 +1,29 @@
 @extends('layouts.app')
 
 @section('titulo')
-Perfil
+{{$user->name}}
 @endsection
 
-@section ('body')
-<div class="container emp-profile">
+@section ('content')
+<div class="container profile">
   <div class="row">
-    <div class="col-md-4">
-      <form action='' method='post' enctype="multipart/form-data">
-        <div class="profile-img">
-           <img class="img-fluid" src="/imagenes/marca/logo.png"
-            alt=""/>
-            <div class="file btn btn-lg btn-primary">
-                Cambiar Foto
-            <input type="file" name="imagenperfil" value=""/>
-            </div>
-            <div class="btn-lg btn-primary">
-              <input class="btn btn-primary" type="submit" value="Subir foto">
-            </div>
-              <!--
-            <div class='btn btn-lg btn-primary container'>
-              <input type='submit' name='Submit' value='Subir foto'/>
-            </div>
-          -->
-        </div>
+    <div class="col-md-4"> <!-- Imagen de pefil -->
+      <div class="profile-img">
+        <img class="img-fluid" src="/storage/usuarios/{{$user->imagenPerfil}}"  alt=""/>
+      </div>
+      <form action='/updateAvatar/{{$user->idUser}}' method='post' enctype="multipart/form-data" class='file'>
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="PUT">        
+        <input type="file"  name="imagenPerfil" value='Cambiar imagen'>
+        <button type="submit" class="btn btn-outline-info btn-sm">Cambiar imagen</button>
       </form>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8"> <!-- Usuario -->
       <div class="profile-head">
         <h4>
-          <span> ¡Bienvenido {{ Auth::user()->name }} !  </span>
+          <span> ¡Bienvenido {{ $user->name }} !  </span>
         </h4>
-        <a class="btn btn-outline-primary editarinfo" href="editUser.php" role="button">Editar información</a>
+        <a class="btn btn-outline-primary editarinfo" href="/miPerfil/{{$user->idUser}}/editar" role="button">Editar información</a>
       </div>
       <div class="row">
         <div class="col-md-10">
@@ -51,7 +42,7 @@ Perfil
                   <label>Id</label>
                 </div>
                 <div class="col-md-6">
-                  <p> {{ Auth::user()->name }} </p>
+                  <p> {{ $user->name }} </p>
                 </div>
               </div>
               <div class="row">
@@ -59,7 +50,7 @@ Perfil
                   <label>Nombre</label>
                 </div>
                 <div class="col-md-6">
-                  <p> {{ Auth::user()->name }} </p>
+                  <p> {{ $user->name }} </p>
                 </div>
               </div>
               <div class="row">
@@ -67,7 +58,7 @@ Perfil
                   <label>Email</label>
                 </div>
                 <div class="col-md-6">
-                    <p> {{ Auth::user()->email }}
+                    <p> {{ $user->email }}
                 </div>
               </div>
             </div>

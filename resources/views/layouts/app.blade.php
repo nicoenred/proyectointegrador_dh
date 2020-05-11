@@ -18,8 +18,9 @@
   <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
+
   <header id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/home') }}">
           <img src="/imagenes/marca/logo.png" alt="entre diagonales" width="30" height="30" class="d-inline-block align-top">
@@ -42,7 +43,7 @@
               <a class="nav-link" href="{{ Route('home') }}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Excursiones</a>
+              <a class="nav-link" href="/directorio">Excursiones</a>
             </li>
             <li  class="nav-item">
               <a class="nav-link" href="/about">Sobre Nosotros</a>
@@ -60,65 +61,45 @@
                 </li>
               @endif
             @else
+              <li class="nav-item">
+                <a class="nav-link" href="/carrito"> Carrito </a>
+              </li>
               <li class="nav-item dropdown">
-
-                @if (Auth::user()->role='admin')
-                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                  </form>
-                  <a class="dropdown-item" href="{{ route('profile') }}">
-                    {{ __('Mi Perfil') }}
-                  </a>
-                  <a class="dropdown-item" href="/admin/{{Auth::user()->idUser}}">
-                    {{ __('Configuración') }}
-                  </a>
-                </div>
-              @else
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                   {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
-
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                 </a>
-
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
                 </form>
-
-                <a class="dropdown-item" href="{{ route('profile') }}">
+                <a class="dropdown-item" href="/miPerfil/{{Auth::user()->idUser}}">
                   {{ __('Mi Perfil') }}
                 </a>
+                @if (Auth::user()->rol == 'admin')
+                  <a class="dropdown-item" href="/admin/{{Auth::user()->idUser}}"> Configuracion </a>
+                @endif
               </div>
-            @endif
-          </li>
-        @endguest
+            </li>
+          @endguest
         </ul>
       </div>
     </div>
-    </nav>
+  </nav>
   </header>
-  @yield('body')
-  @yield('content')
-
 
   @yield('portada')
 
+  @yield('content')
+
+
 </body>
 
-  <footer class="footerstyle">
+<footer class="footerstyle">
 
     <div class="container-fluid">
       <div class="row">
@@ -170,6 +151,5 @@
 
     <!-- /.container -->
   </footer>
-
 
 </html>

@@ -103,4 +103,14 @@ class ExcursionController extends Controller
       return redirect('/excursiones');
     }
 
+    public function shopping($id){
+      $excursion=Excursion::find($id);
+      return View('shopExcursion', compact('excursion'));
+    }
+
+    public function DirectoryShop(){
+      $excursiones=Excursion::get();
+      return view('shopExcursiones', compact('excursiones'));
+    }
+
 }

@@ -16,7 +16,7 @@
       </div>
       <div class="row p-0">
         <div class="col text-center">
-          <a class="btn btn-primary btn-lg" href="listaproductos.php" role="button">Conocé nuestros recorridos</a>
+          <a class="btn btn-primary btn-lg" href="/directorio" role="button">Conocé nuestros recorridos</a>
         </div>
       </div>
 
@@ -24,6 +24,28 @@
 
 @endsection
 
-@section('excursiones')
-  @yield('excursion')
+@section('content')
+
+  <div class="container-fluid">
+    <div class='row' id='productos_home'>
+    @foreach ($excursion as $producto)
+      <div class="col-sm-12 col-md-4" id='producto_home'>
+        <div class="card">
+        <img src="/storage/excursiones/{{$producto->imagen}}" class="card-img-top" alt="{{$producto->name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{$producto->name}}</h5>
+          <p class="card-text">{{$producto->sub}}</p>
+          <a href="/shopExcursion/{{$producto->idExcursion}}" class="btn btn-primary">Conocer más</a>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+  <div class="paginacion">
+    {{ $excursion->links() }}
+  </div>
+</div>
+
+
+
 @endsection

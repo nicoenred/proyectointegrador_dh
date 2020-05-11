@@ -5,7 +5,7 @@ about
 @endsection
 
 
-@section('body')
+@section('content')
 
   <div class="jumbotron m-0">
     <h1 class="display-4"><img src="/imagenes/marca/logo.png" alt="entre_diagonales">entre <strong>Diagonales</strong> /</a> </h1>

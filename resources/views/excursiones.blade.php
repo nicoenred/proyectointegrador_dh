@@ -20,7 +20,7 @@
               </h4>
               <h5>$ {{$producto->valor}}</h5>
               <p class="card-text">{{$producto->sub}}</p>
-              <a class="btn btn-danger" href="/excursiones/{{$producto->idExcursion}}" role="button">Comprar</a>
+              <a class="btn btn-warning" href="/excursiones/{{$producto->idExcursion}}" role="button">Ver</a>
             </div>
           </div>
         </div>
