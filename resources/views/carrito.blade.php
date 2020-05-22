@@ -53,7 +53,6 @@ Carrito
       <div class="row p-0">
         <div class="col text-center">
           <button type="button" class="btn btn-primary btn-lg text-center  center">
-            <span><img src='' width="24" height="24"></span>
             Comprar
           </button>
         </div>

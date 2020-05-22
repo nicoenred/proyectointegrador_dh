@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Excursion;
 use Session;
+use Auth;
 
 
 class CarritoController extends Controller
 {
     public function _construct(){
-      if (! session()->exist('carro')) {
-        session('carro', array());
-      }
+        if (! session()->exist('carro')) {
+            session('carro', array());
+         }
     }
 
     public function mostrarCarro(){
@@ -29,8 +30,14 @@ class CarritoController extends Controller
         "valor" => $excursion->valor,
         "cantidad"=>1
       ];
-      session()->push('carro' , $item);
-      return redirect()->route('carrito');
+      if (Auth::check()) {
+        session()->push('carro' , $item);
+        return redirect()->route('carrito');
+      }
+      else {
+        session()->push('carro' , $item);
+        return redirect()->route('login');
+      }
     }
 
     public function deleteItem(Request $request, $id){
@@ -45,13 +52,14 @@ class CarritoController extends Controller
     }
 
     private function total(){
-      $carro=Session::get('carro');
-      $total=0;
-      foreach ($carro as $key => $item) {
-        $total += $item["valor"] * $item["cantidad"];
-      }
-      return $total;
-      dd($total);
+        $total=0;
+        $carro=session()->get('carro');
+        if (isset($carro)) {
+            foreach ($carro as $key => $item) {
+                $total += $item["valor"] * $item["cantidad"];
+            }
+        }
+        return $total;
     }
 
 }

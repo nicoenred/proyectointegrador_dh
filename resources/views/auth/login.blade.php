@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('titulo')
+    Ingresá
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -39,6 +43,7 @@
                             </div>
                         </div>
 
+                        {{--
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -50,20 +55,24 @@
                                 </div>
                             </div>
                         </div>
+                        --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Ingresar') }}
                                 </button>
-
+                                <p>Si no estás registrado, <a href="/register">ingresá acá</a></p>
+                                {{--
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('¿Olvidaste la contraseña?') }}
                                     </a>
                                 @endif
+                                --}}
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

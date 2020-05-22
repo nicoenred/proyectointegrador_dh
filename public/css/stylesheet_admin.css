@@ -1,13 +1,48 @@
-.row {
-  padding: 20%;
-  flex-direction: column;
-  display: initial;  
+div.home_admin{
+
 }
 
-.col {
-  margin: 10px;
+#excursion {
+    margin: 1vh;
+    padding: 0px;
 }
 
-.btn-group-lg>.btn, .btn-lg {
-  width: 50%;
+div.row {
+    flex-wrap: nowrap;
+    flex-flow: column;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+div.row#showExcursion{
+    flex-flow: row;
+    align-items: inherit;
+}
+
+div.edit-form{
+    display: inline-flex;
+    justify-content: center;
+    place-content: space-around;
+
+}
+
+@media (max-width: 768px) {
+    div.row {
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+    div.row#showExcursion{
+        flex-flow: column;
+        align-items: inherit;
+    }
+
+}
+
+label#buscar.custom-file-input:lang(en)~.custom-file-label:after {
+    content: "Buscar";
+}
+
+label#buscar.custom-file-label:after {
+    content: "Buscar";
 }

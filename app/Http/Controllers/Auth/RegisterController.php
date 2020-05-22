@@ -46,16 +46,27 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    public function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:30'],
-            'telephone' => ['required', 'string'],
+        $rules=[
+            'name' => ['required', 'string', 'max:255', 'min:3'],
+            'surname' => ['required', 'string', 'max:255', 'min:3'],
+            'username' => ['required', 'string', 'max:30', 'min:3'],
+            'telephone' => ['required', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ];
+
+        $message=[
+        'required' => 'El campo :attribute es obligatorio',
+            'max'=>'El campo es demasiado largo',
+            'min'=>'El campo es demasiado corto',
+            'email'=>'El campo tiene que ser un email',
+            'numeric'=>'El campo debe ser un número'
+        ];
+
+        return Validator::make($data, $rules, $message);
+
     }
 
     /**
@@ -66,6 +77,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $this->validator($data);
         return User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],

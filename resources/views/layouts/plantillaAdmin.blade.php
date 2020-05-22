@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('titulo')</title>
+    <link rel="stylesheet" href="{{ asset('css/stylesheet_admin.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -25,14 +26,13 @@
             <li class="nav-item active">
               <a class="nav-link" href="/admin/{{auth()->user()->idUser}}"> Inicio <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Configuración</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">{{auth()->user()->name}}</a>
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+            <li class="nav-item active">
+                <a class="nav-link" href="/miPerfil/{{Auth::user()->idUser}}">Mi perfil<a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                {{ __('Cerrar Sesión') }}
                 </a>
-
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
                 </form>
@@ -43,9 +43,8 @@
       </nav>
     </header>
 
-    <div class="container">
-      @yield('content')
-    </div>
+    @yield('content')
+
 
   </body>
 </html>
