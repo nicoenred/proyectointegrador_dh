@@ -113,4 +113,5 @@ class ExcursionController extends Controller
       return view('shopExcursiones', compact('excursiones'));
     }
 
+
 }

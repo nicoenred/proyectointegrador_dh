@@ -7,11 +7,14 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Assistant:400,700|Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -19,6 +22,7 @@
 </head>
 <body>
 
+{{-- Header --}}
   <header id="app">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
@@ -31,13 +35,9 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav mr-auto">
-
-          </ul>
 
           <!-- Right Side Of Navbar -->
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto barra">
             <!-- Authentication Links -->
             <li  class="nav-item">
               <a class="nav-link" href="{{ Route('home') }}">Inicio</a>
@@ -92,52 +92,67 @@
   </nav>
   </header>
 
-  @yield('portada')
+{{-- Portada --}}
+  <section class="container-fluid text-center p-3 m-0 oscurecer" id="home">
+    <div class="row">
+    <div class="col-12">
+        <a href="home"><img src="/imagenes/marca/logo.png" alt="entre_diagonales"> </a>
+    </div>
+    <div id="titulo" class="col-12">
+        <a  class="texto" href="home"><h1> entre <br> DIAGONALES </h1></a>
+    </div>
+    <div class="row p-0">
+        <div class="col text-center">
+        <a class="btn btn-dark btn-lg" href="/directorio" role="button">Conocé nuestros recorridos</a>
+        </div>
+    </div>
 
+  </section>
+
+{{-- Contenido --}}
   @yield('content')
 
 
 </body>
 
+{{-- Footer --}}
 <footer class="footerstyle">
 
     <div class="container-fluid">
       <div class="row">
-
-
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-          <div class="m-0"><p class="h4 text-center text-uppercase m-3"><strong>MAPA DEL SITIO</strong></p></div>
-          <div class="navfoot">
+          <div class="m-0"><p class="h4 text-center text-uppercase m-3" id="footer_title"><strong>MAPA DEL SITIO</strong></p></div>
+          <div class="navfoot barra">
               <ul>
-                  <li><a href="/home" title="Página principal de entre Diagonales">Home</a></li>
-                  <li><a href="/about" title="Conocenos">Sobre Nosotros</a></li>
-                  <li><a href="/listaproductos.php" title="entre Diagonales - Nuestras excursiones">Excursiones</a></li>
-                  <li><a href="/faq" title="¿Preguntas?">Preguntas frecuentes</a></li>
-                  <li><a href="/contacto" title="Contactanos">Contacto</a></li>
-                  <li><a href="/register" title="Registrate y enterate de las últimas novedades y promociones">Registrarse</a></li>
-                  <li><a href="/login" title="Logueate">Login</a></li>
+                  <li><a href="/home" title="Página principal de entre Diagonales">Home </a></li>
+                  <li><a href="/about" title="Conocenos">Sobre Nosotros </a></li>
+                  <li><a href="/listaproductos.php" title="entre Diagonales - Nuestras excursiones">Excursiones </a></li>
+                  <li><a href="/faq" title="¿Preguntas?">Preguntas frecuentes </a></li>
+                  <li><a href="/contacto" title="Contactanos">Contacto </a></li>
+                  <li><a href="/register" title="Registrate y enterate de las últimas novedades y promociones">Registrarse </a></li>
+                  <li><a href="/login" title="Logueate">Login </a></li>
               </ul>
           </div>
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-          <div class="m-0 "><p class="h4 text-center text-uppercase m-3"><strong>SOCIAL MEDIA</strong></p></div>
+          <div class="m-0 "><p class="h4 text-center text-uppercase m-3" id="footer_title"><strong>SOCIAL MEDIA</strong></p></div>
           <div class="navfoot">
               <ul>
-                  <li><a href="#" title="Facebook de entre Diagonales">Facebook</a></li>
-                  <li><a href="#" title="Instagram de entre Diagonales">Instagram</a></li>
-                  <li><a href="#" title="Twitter de entre Diagonales">Twitter</a></li>
+                  <li><a href="#" title="Facebook de entre Diagonales">Facebook </a></li>
+                  <li><a href="#" title="Instagram de entre Diagonales">Instagram </a></li>
+                  <li><a href="#" title="Twitter de entre Diagonales">Twitter </a></li>
               </ul>
 
           </div>
         </div>
 
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-           <div class="m-0"><p class="h4 text-center text-uppercase m-3"><strong> POLÍTICA DE USO</strong></p></div>
+           <div class="m-0"><p class="h4 text-center text-uppercase m-3" id="footer_title"><strong> POLÍTICA DE USO</strong></p></div>
             <div class="navfoot">
                 <ul>
-                    <li><a href="#" title="Condiciones">Condiciones generales</a></li>
-                    <li><a href="#" title="Aviso legal">Aviso legal</a></li>
-                    <li><a href="#" title="Política de privacidad de entre Diagonales">Política de privacidad</a></li>
+                    <li><a href="#" title="Condiciones">Condiciones generales </a></li>
+                    <li><a href="#" title="Aviso legal">Aviso legal </a></li>
+                    <li><a href="#" title="Política de privacidad de entre Diagonales">Política de privacidad </a></li>
                 </ul>
             </div>
         </div>

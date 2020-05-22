@@ -1,19 +1,10 @@
 @extends('layouts.app')
 
 @section('titulo')
-faq
+Preguntas frecuentes
 @endsection
 
 @section('content')
-<section class="container-fluid text-center p-3 m-0 oscurecer" id="home">
-  <div class="row">
-    <div class="col-12">
-      <a href="home"><img src="/imagenes/marca/logo.png" alt="entre_diagonales"> </a>
-    </div>
-    <div id="titulo" class="col-12">
-      <a  class="texto" href="home"><h1>entre <br> DIAGONALES </h1></a>
-    </div>
-</section>
 
 <section class="container  w-80">
   <p class="h2 text-center text-uppercase m-3"><strong>preguntas frecuentes</strong></p>
