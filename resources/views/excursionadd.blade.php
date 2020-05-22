@@ -22,6 +22,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
+
 <body>
   <div class="container-fluid">
 

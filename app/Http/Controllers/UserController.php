@@ -42,22 +42,22 @@ class UserController extends Controller
 
     public function udpateInfo(Request $form){
 
-      //$rule=[
+      // $rule=[
       //  'name'=>'string | min:2 | required ',
       //  'sub'=>'string',
       //  'valor'=>'numeric',
       //  'descripcion'=>'string',
       //  'categoria_id'=>'numeric | filled'
-      //];
-
-      //$messajes=[
+      // ];
+      //
+      // $messajes=[
       //  'string'=>'El campo :attribute debe ser de texto',
       //  'min'=>'El :attribute debe ser de al menos :min caracteres',
       //  'numeric'=>'El campo :attribute debe ser numérico',
       //  'categoria_id.filled'=>'El campo categoría está vacío'
-      //];
-
-      //$this->validate($form, $rule, $messajes);
+      // ];
+      //
+      // $this->validate($form, $rule, $messajes);
 
       $id=$form["id"];
       $user=User::find($id);

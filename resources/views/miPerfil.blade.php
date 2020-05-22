@@ -13,7 +13,7 @@
       </div>
       <form action='/updateAvatar/{{$user->idUser}}' method='post' enctype="multipart/form-data" class='file'>
         {{ csrf_field() }}
-        <input type="hidden" name="_method" value="PUT">        
+        <input type="hidden" name="_method" value="PUT">
         <input type="file"  name="imagenPerfil" value='Cambiar imagen'>
         <button type="submit" class="btn btn-outline-info btn-sm">Cambiar imagen</button>
       </form>
@@ -23,7 +23,7 @@
         <h4>
           <span> ¡Bienvenido {{ $user->name }} !  </span>
         </h4>
-        <a class="btn btn-outline-primary editarinfo" href="/miPerfil/{{$user->idUser}}/editar" role="button">Editar información</a>
+        <a class="btn btn-outline-primary editarinfo" id="editarinfo" href="/miPerfil/{{$user->idUser}}/editar" role="button">Editar información</a>
       </div>
       <div class="row">
         <div class="col-md-10">
@@ -86,4 +86,6 @@
     </div>
   </div>
 </div>
+
+          <script src="{{ asset('/js/entrediagonales.js') }}"></script>
 @endsection
