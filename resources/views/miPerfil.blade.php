@@ -21,7 +21,7 @@
     <div class="col-md-8"> <!-- Usuario -->
       <div class="profile-head">
         <h4>
-          <span> ¡Bienvenido {{ $user->name }} !  </span>
+          <span> ¡ Bienvenido {{ $user->name }} !  </span>
         </h4>
         <a class="btn btn-outline-primary editarinfo" id="editarinfo" href="/miPerfil/{{$user->idUser}}/editar" role="button">Editar información</a>
       </div>
@@ -31,9 +31,9 @@
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#user-home" role="tab" aria-controls="home" aria-selected="true">Información</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Historial de compras</a>
-            </li>
+            </li> --}}
           </ul>
           <div class="tab-content profile-tab" id="myTabContent">
             <div class="tab-pane fade show active" id="user-home" role="tabpanel" aria-labelledby="home-tab">

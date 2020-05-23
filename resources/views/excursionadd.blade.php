@@ -27,7 +27,7 @@
 <body>
   <div class="container-fluid">
 
-  <div class="row">
+  {{-- <div class="row">
 
 
     <form enctype="multipart/form-data" method="post" action="/excursion/crear">
@@ -118,7 +118,7 @@
       </form>
 
   </div>
-=======
+======= --}}
 @extends('layouts.plantillaAdmin')
 
 @section('titulo')
@@ -210,7 +210,7 @@
         </form>
 
     </div>
->>>>>>> 713decbf0f5e002a3c6674575f7c6115af0cb1a0
+{{-- >>>>>>> 713decbf0f5e002a3c6674575f7c6115af0cb1a0 --}}
 
 </div>
 @endsection
